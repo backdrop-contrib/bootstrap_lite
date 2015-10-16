@@ -1,0 +1,252 @@
+/* Navbar + admin-bar fixes */
+body.navbar-is-fixed-bottom{
+  padding-bottom:50px!important;
+}
+
+body.navbar-is-fixed-top {
+  padding-top:70px!important;
+}
+
+body.navbar-is-fixed-top-padding{
+  padding-top:70px!important;
+}
+
+body div#admin-bar{
+  z-index:1600;
+}
+
+body.navbar-admin-bar.navbar-is-fixed-top .navbar-fixed-top  {
+  padding-top: 33px;
+}
+
+/* Logo fixes to meet navbar requirements by size. */
+.navbar-brand img{
+  height: 40px;
+  float: left;
+  margin-top: -10px;
+  padding-right: 10px;
+}
+
+ul li.collapsed,ul li.expanded,ul li.leaf{
+  list-style:none;list-style-image:none;
+}
+
+/* Form style fixes. */
+html.js fieldset.collapsed{
+  height:auto;
+}
+
+fieldset legend.panel-heading{
+  float:left;line-height:1em;margin:0;
+}
+
+fieldset .panel-body{
+  clear:both;
+}
+
+fieldset .panel-heading a.panel-title{
+  color:inherit;display:block;margin:-10px -15px;padding:10px 15px;
+}
+
+fieldset .panel-heading a.panel-title:hover{
+  text-decoration:none;
+}
+
+.input-group span.input-group-addon {
+  min-width: 100px;
+}
+
+.contact-site-form span.input-group-addon {
+  min-width: 150px;
+}
+
+.input-group textarea {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 0;
+}
+
+
+.form-control.required::-webkit-input-placeholder { color: rgba(255, 0, 14, 0.68); }
+.form-control.required:-moz-placeholder { color: rgba(255, 0, 14, 0.68); }
+.form-control.required::-moz-placeholder { color: rgba(255, 0, 14, 0.68); }
+.form-control.required:-ms-input-placeholder { color: rgba(255, 0, 14, 0.68); }
+
+.form-item input.error, .form-item textarea.error, .form-item select.error {
+  border: 1px solid red;
+}
+
+.checkbox input[type=checkbox], .checkbox-inline input[type=checkbox], .radio input[type=radio], .radio-inline input[type=radio] {
+  margin-left: 0px;
+}
+
+.form-actions .btn {
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+/* Table style fixes. */
+th.checkbox,td.checkbox,th.radio,td.radio{
+  display:table-cell;
+}
+
+tr.even {
+  background-color: transparent;
+}
+
+.sticky-header th {
+  padding: 8px;
+}
+
+/* Vertical tab fixes. */
+.vertical-tab-item {
+  background-color: #f7f7f9;
+}
+
+.vertical-tab-link {
+  color: black;
+}
+.vertical-tab-link span {
+  color: #555;
+}
+
+.vertical-tab-link:focus strong,
+.vertical-tab-link:active strong,
+.vertical-tab-link:hover strong,
+.vertical-tab-link:focus .fieldset-legend,
+.vertical-tab-link:active .fieldset-legend,
+.vertical-tab-link:hover .fieldset-legend {
+  text-decoration: none;
+  outline: none;
+}
+.vertical-tab-item:focus,
+.vertical-tab-item:active,
+.vertical-tab-item:hover,
+.vertical-tab-item:focus,
+.vertical-tab-item:active,
+.vertical-tab-item:hover{
+  background-color: white;
+}
+
+.vertical-tabs-pane .fieldset-wrapper {
+  padding: 1em;
+}
+
+a.fieldset-title,
+a.fieldset-title:focus,
+a.fieldset-title:hover {
+  text-decoration: none;
+}
+
+/* Fix drop button style in admin area. */
+.dropbutton .dropbutton-action > * {
+  padding: 6px 12px;  
+}
+
+.dropbutton .dropbutton-action a,
+.dropbutton .dropbutton-action a:hover
+{
+  border: none;
+}
+
+/* Fix Hanle for drag&drop. */
+div.handle {
+  box-sizing: content-box;
+}
+
+/* Fix tabs. */
+div.tabs {
+  padding-bottom: 10px;
+}
+
+ul.action-links i.fa {
+  padding-right: 10px;
+}
+
+/* Fix icons for collapsibel fieldset. */
+.js fieldset.collapsible .fieldset-title {
+  background: none;
+  padding-left: 0px;
+}
+
+.js fieldset.collapsible .fieldset-title:before {
+  content: "\e252";
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-size: 13px;
+  padding-right: 10px;
+}
+
+.js fieldset.collapsed .fieldset-title {
+  background: none;
+  padding-left: 0px;
+}
+
+.js fieldset.collapsed .fieldset-title:before {
+  content: "\e250";
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-size: 13px;
+  padding-right: 10px;
+}
+
+/* Fix VIEWS UI. */
+.container-inline div {
+  display: inline-block;
+}
+
+.views-display-setting .label {
+  color: #666666;
+  font-size: 12px;
+}
+
+#views-ui-preview-form > div > div,
+#views-ui-preview-form > div > input {
+  float: none;  
+}
+
+.views-display-columns > * {
+  margin: 0;
+}
+.views-display-columns > *:first-child {
+  margin: 0px;
+  padding-left:15px;
+}
+
+.views-ui-display-tab-bucket {
+  padding-top: 0px;
+}
+
+.views-ui-display-tab-bucket .dropbutton li > * {
+  padding: 6px 12px;
+}
+
+.views-ui-display-tab-bucket + .views-ui-display-tab-bucket {
+  border-top: 1px solid #ddd;
+}
+
+/* Fix page title padding. */
+h1.page-title {
+  padding-bottom: 15px;
+}
+
+/* Style user pic. */
+.user-picture img {
+  border: 1px solid #e5e7e8;
+  padding: 1px; 
+}
+
+/* Style nodes and coments in twitter style. */
+.view-mode-teaser,
+.comment {
+  padding-bottom: 15px;
+  padding-top: 15px;
+  margin-top: 0px;
+  border-bottom: 1px dashed #efefef;
+}
+
+/* Add spacing for pager. */
+ul.pager {
+  padding-top: 20px;
+}
