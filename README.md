@@ -10,15 +10,24 @@
   - Breadcrumbs tweaks
   - Content fluid or fixed width
   
-## Excluded from code
+## Excluded from original drupal code
   - Starter kit. But you still can create sub theme. See [Developing themes](https://api.backdropcms.org/developing-themes)
   - Tooltip. Feature is here, but you need follow [documentation](http://getbootstrap.com/javascript/#tooltips) to make it work.
   - Popovers.  Feature is here, but you need follow [documentation](http://getbootstrap.com/javascript/#popovers) to make it work.
   - Anchors settings. I believe this one need to be done via module.
 
-## Roadmap
+##Installation
+  - Install this theme using the official Backdrop CMS instructions at
+  https://backdropcms.org/guide/themes
+
+##Roadmap
   1.x-3.3.5.2
    - Tooltops, Popovers implementation in a best way to integrate with backdrop.
+
+##License
+
+This project is GPL v2 software. See the LICENSE.txt file in this directory for
+complete text.
 
 ##Thanks to drupal module Authors
 http://drupal.org/node/259843/committers
