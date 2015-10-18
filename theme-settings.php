@@ -14,9 +14,6 @@ function bootstrap_form_system_theme_settings_alter(&$form, &$form_state, $form_
 
   $form['bootstrap'] = array(
     '#type' => 'vertical_tabs',
-    '#attached' => array(
-      'js'  => array(drupal_get_path('theme', 'bootstrap') . '/js/bootstrap.admin.js'),
-    ),
     '#prefix' => '<h2><small>' . t('Bootstrap Settings') . '</small></h2>',
     '#weight' => -10,
   );
