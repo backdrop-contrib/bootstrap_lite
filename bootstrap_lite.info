@@ -2,6 +2,7 @@ name = Bootstrap lite
 description = Built to use Bootstrap, a sleek, intuitive, and powerful front-end framework for faster and easier web development.
 version = 1.x-3.3.5.1
 backdrop = 1.x
+type = theme
 
 
 settings[bootstrap_lite_cdn] = 3.3.5
