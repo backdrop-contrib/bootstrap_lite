@@ -128,7 +128,7 @@ function bootstrap_form_system_theme_settings_alter(&$form, &$form_state, $form_
   $form['bootstrap_cdn']['bootstrap_cdn'] = array(
     '#type' => 'select',
     '#title' => t('BootstrapCDN version'),
-    '#options' => drupal_map_assoc(array(
+    '#options' => backdrop_map_assoc(array(
       '3.3.5',
     )),
     '#default_value' => theme_get_setting('bootstrap_cdn', 'bootstrap'),
@@ -139,7 +139,7 @@ function bootstrap_form_system_theme_settings_alter(&$form, &$form_state, $form_
   $form['bootstrap_cdn']['bootstrap_font_awesome'] = array(
     '#type' => 'select',
     '#title' => t('Font Awesome version'),
-    '#options' => drupal_map_assoc(array(
+    '#options' => backdrop_map_assoc(array(
       '4.4.0',
     )),
     '#default_value' => theme_get_setting('bootstrap_font_awesome', 'bootstrap'),
@@ -155,7 +155,7 @@ function bootstrap_form_system_theme_settings_alter(&$form, &$form_state, $form_
   );
   
   $bootswatch_themes[''] = bootstrap_bootswatch_template($default_theme_details);
-  $request = drupal_http_request('http://api.bootswatch.com/3/');
+  $request = backdrop_http_request('http://api.bootswatch.com/3/');
   if ($request && $request->code === '200' && !empty($request->data)) {
     if (($api = backdrop_json_decode($request->data)) && is_array($api) && !empty($api['themes'])) {
       foreach ($api['themes'] as $bootswatch_theme) {
