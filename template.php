@@ -802,7 +802,7 @@ function bootstrap_lite_node_add_list($variables) {
  * Use unordered list markup in both compact and extended mode.
  */
 function bootstrap_lite_admin_block_content($variables) {
-  return bootstrap_node_add_list($variables);
+  return bootstrap_lite_node_add_list($variables);
 }
 
 /**
