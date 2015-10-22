@@ -8,7 +8,7 @@
  * Implements hook_css_alter().
  */
 function bootstrap_lite_css_alter(&$css) {
-  $theme_path = drupal_get_path('theme', 'bootstrap_lite');
+  $theme_path = backdrop_get_path('theme', 'bootstrap_lite');
 
   if ($bootstrap_cdn = theme_get_setting('bootstrap_lite_cdn')) {
     // Add CDN.
@@ -718,7 +718,7 @@ function bootstrap_lite_preprocess_breadcrumb(&$variables) {
   }
   if (theme_get_setting('bootstrap_lite_breadcrumb_title') && !empty($breadcrumb)) {
     $item = menu_get_item();
-    $breadcrumb[] = !empty($item['tab_parent']) ? check_plain($item['title']) : drupal_get_title();
+    $breadcrumb[] = !empty($item['tab_parent']) ? check_plain($item['title']) : backdrop_get_title();
   }
 }
 
