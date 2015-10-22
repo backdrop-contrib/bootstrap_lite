@@ -92,7 +92,7 @@ function bootstrap_lite_preprocess_layout(&$variables) {
   
   foreach($layout->content as $key => $block){
     if($block->module == 'system' && $block->delta == 'header'){
-      bootstrap_is_header(true);
+      bootstrap_lite_is_header(true);
     }
   }
   
@@ -112,7 +112,7 @@ function bootstrap_lite_preprocess_page(&$variables){
   );
   backdrop_add_html_head($no_old_ie_compatibility_modes, 'no_old_ie_compatibility_modes');
   
-  if(bootstrap_is_header('get')){
+  if(bootstrap_lite_is_header('get')){
     if (user_access('access administration bar') && !admin_bar_suppress(FALSE)) {
       $variables['classes'][] = 'navbar-admin-bar';
     }
