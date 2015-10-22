@@ -30,7 +30,7 @@ Please try [Demo site](http://bootstrap.backdrop.expert).
   - navbar content controlled by layout block - "Header block". By changing settings for "Header block" you can control menu, logo, sitename and site slogan visibility.
 
 ##Roadmap
-  1.x-1.3.5.2
+  1.x-1.3.5.3
     - Tooltops, Popovers implementation in a best way to integrate with backdrop.
     - Add ability to have different container settings for different layout. For example: fluid for Default Layout and fixed for Default Administrative Layout.
 
