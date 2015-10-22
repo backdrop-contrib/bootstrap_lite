@@ -8,7 +8,7 @@
  * Implements hook_css_alter().
  */
 function bootstrap_lite_css_alter(&$css) {
-  $theme_path = drupal_get_path('theme', 'bootstrap');
+  $theme_path = drupal_get_path('theme', 'bootstrap_lite');
 
   if ($bootstrap_cdn = theme_get_setting('bootstrap_lite_cdn')) {
     // Add CDN.
