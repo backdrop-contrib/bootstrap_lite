@@ -361,11 +361,13 @@ function bootstrap_lite_textarea($variables) {
  * @ingroup themeable
  */
 function bootstrap_lite_form_element($variables){
-  if($variables['element']['#type'] == 'checkbox'){
-    $variables['element']['#wrapper_attributes']['class'][] = 'checkbox';
-  }
-  if($variables['element']['#type'] == 'radio'){
-    $variables['element']['#wrapper_attributes']['class'][] = 'radio';
+  if(isset($variables['element']['#type'])){
+    if($variables['element']['#type'] == 'checkbox'){
+      $variables['element']['#wrapper_attributes']['class'][] = 'checkbox';
+    }
+    if($variables['element']['#type'] == 'radio'){
+      $variables['element']['#wrapper_attributes']['class'][] = 'radio';
+    }
   }
   $description = FALSE;
   if(isset($variables['element']['#description'])){
