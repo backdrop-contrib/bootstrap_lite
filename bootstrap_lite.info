@@ -1,12 +1,12 @@
-name = Bootstrap
+name = Bootstrap lite
 description = Built to use Bootstrap, a sleek, intuitive, and powerful front-end framework for faster and easier web development.
 version = 1.x-3.3.5.1
 backdrop = 1.x
 
 
-settings[bootstrap_cdn] = 3.3.5
-settings[bootstrap_font_awesome] = 4.4.0
-settings[bootstrap_container] = container
+settings[bootstrap_lite_cdn] = 3.3.5
+settings[bootstrap_lite_font_awesome] = 4.4.0
+settings[bootstrap_lite_container] = container
 
 stylesheets[all][] = css/style.css
 

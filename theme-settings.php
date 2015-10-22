@@ -6,7 +6,7 @@
  * Theme settings file for Bootstrap.
  */
 
-function bootstrap_form_system_theme_settings_alter(&$form, &$form_state, $form_id = NULL) {
+function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $form_id = NULL) {
 
   if (isset($form_id)) {
     return;
@@ -24,10 +24,10 @@ function bootstrap_form_system_theme_settings_alter(&$form, &$form_state, $form_
     '#group' => 'bootstrap',
   );
 
-  $form['tweaks']['bootstrap_container'] = array(
+  $form['tweaks']['bootstrap_lite_container'] = array(
     '#type' => 'select',
     '#title' => t('Container type'),
-    '#default_value' => theme_get_setting('bootstrap_container', 'bootstrap'),
+    '#default_value' => theme_get_setting('bootstrap_lite_container', 'bootstrap'),
     '#description' => t('Switch between full width (fluid) or fixed (max 1170px) width.'),
     '#options' => array(
       'container' => t('Fixed'),
@@ -35,10 +35,10 @@ function bootstrap_form_system_theme_settings_alter(&$form, &$form_state, $form_
     )
   );
 
-  $form['tweaks']['bootstrap_datetime'] = array(
+  $form['tweaks']['bootstrap_lite_datetime'] = array(
     '#type' => 'checkbox',
     '#title' => t('Show "XX time ago".'),
-    '#default_value' => theme_get_setting('bootstrap_datetime', 'bootstrap'),
+    '#default_value' => theme_get_setting('bootstrap_lite_datetime', 'bootstrap'),
     '#description' => t('If enabled, replace date output for nodes and comments by "XX time ago".'),
   );
 
@@ -49,16 +49,16 @@ function bootstrap_form_system_theme_settings_alter(&$form, &$form_state, $form_
     '#collapsed' => TRUE,
     '#group' => 'bootstrap',
   );
-  $form['breadcrumbs']['bootstrap_breadcrumb_home'] = array(
+  $form['breadcrumbs']['bootstrap_lite_breadcrumb_home'] = array(
     '#type' => 'checkbox',
     '#title' => t('Show "Home" breadcrumb link'),
-    '#default_value' => theme_get_setting('bootstrap_breadcrumb_home', 'bootstrap'),
+    '#default_value' => theme_get_setting('bootstrap_lite_breadcrumb_home', 'bootstrap'),
     '#description' => t('If your site has a module dedicated to handling breadcrumbs already, ensure this setting is enabled.'),
   );
-  $form['breadcrumbs']['bootstrap_breadcrumb_title'] = array(
+  $form['breadcrumbs']['bootstrap_lite_breadcrumb_title'] = array(
     '#type' => 'checkbox',
     '#title' => t('Show current page title at end'),
-    '#default_value' => theme_get_setting('bootstrap_breadcrumb_title', 'bootstrap'),
+    '#default_value' => theme_get_setting('bootstrap_lite_breadcrumb_title', 'bootstrap'),
     '#description' => t('If your site has a module dedicated to handling breadcrumbs already, ensure this setting is disabled.'),
   );
 
@@ -70,11 +70,11 @@ function bootstrap_form_system_theme_settings_alter(&$form, &$form_state, $form_
     '#collapsed' => TRUE,
     '#group' => 'bootstrap',
   );
-  $form['navbar']['bootstrap_navbar_position'] = array(
+  $form['navbar']['bootstrap_lite_navbar_position'] = array(
     '#type' => 'select',
     '#title' => t('Navbar Position'),
     '#description' => t('Select your Navbar position.'),
-    '#default_value' => theme_get_setting('bootstrap_navbar_position', 'bootstrap'),
+    '#default_value' => theme_get_setting('bootstrap_lite_navbar_position', 'bootstrap'),
     '#options' => array(
       'static-top' => t('Static Top'),
       'fixed-top' => t('Fixed Top'),
@@ -83,11 +83,11 @@ function bootstrap_form_system_theme_settings_alter(&$form, &$form_state, $form_
     '#empty_option' => t('Normal'),
   );
   
-  $form['navbar']['bootstrap_navbar_menu_position'] = array(
+  $form['navbar']['bootstrap_lite_navbar_menu_position'] = array(
     '#type' => 'select',
     '#title' => t('Navbar Menu Position'),
     '#description' => t('Select your Navbar Menu position.'),
-    '#default_value' => theme_get_setting('bootstrap_navbar_menu_position', 'bootstrap'),
+    '#default_value' => theme_get_setting('bootstrap_lite_navbar_menu_position', 'bootstrap'),
     '#options' => array(
       'navbar-left' => t('Left'),
       'navbar-right' => t('Right'),
@@ -95,22 +95,22 @@ function bootstrap_form_system_theme_settings_alter(&$form, &$form_state, $form_
     '#empty_option' => t('Normal'),
   );
   
-  $form['navbar']['bootstrap_navbar_inverse'] = array(
+  $form['navbar']['bootstrap_lite_navbar_inverse'] = array(
     '#type' => 'checkbox',
     '#title' => t('Inverse navbar style'),
     '#description' => t('Select if you want the inverse navbar style.'),
-    '#default_value' => theme_get_setting('bootstrap_navbar_inverse', 'bootstrap'),
+    '#default_value' => theme_get_setting('bootstrap_lite_navbar_inverse', 'bootstrap'),
   );
 
-  $form['navbar']['bootstrap_navbar_user_menu'] = array(
+  $form['navbar']['bootstrap_lite_navbar_user_menu'] = array(
     '#type' => 'checkbox',
     '#title' => t('Add cog with user-menu'),
     '#description' => t('Select if you want cog style right pulled popup menu.'),
-    '#default_value' => theme_get_setting('bootstrap_navbar_user_menu', 'bootstrap'),
+    '#default_value' => theme_get_setting('bootstrap_lite_navbar_user_menu', 'bootstrap'),
   );
 
   backdrop_add_css(backdrop_get_path('theme', 'bootstrap') . '/css/settings.css');
-  $form['bootstrap_cdn'] = array(
+  $form['bootstrap_lite_cdn'] = array(
     '#type' => 'fieldset',
     '#title' => t('BootstrapCDN settings'),
     '#description' => t('Use !bootstrapcdn to serve the Bootstrap framework files. Enabling this setting will prevent this theme from attempting to load any Bootstrap framework files locally. !warning', array(
@@ -125,24 +125,24 @@ function bootstrap_form_system_theme_settings_alter(&$form, &$form_state, $form_
   );
   // BootstrapCDN.
 
-  $form['bootstrap_cdn']['bootstrap_cdn'] = array(
+  $form['bootstrap_lite_cdn']['bootstrap_lite_cdn'] = array(
     '#type' => 'select',
     '#title' => t('BootstrapCDN version'),
     '#options' => backdrop_map_assoc(array(
       '3.3.5',
     )),
-    '#default_value' => theme_get_setting('bootstrap_cdn', 'bootstrap'),
+    '#default_value' => theme_get_setting('bootstrap_lite_cdn', 'bootstrap'),
     '#empty_option' => t('Disabled'),
     '#empty_value' => NULL,
   );
   
-  $form['bootstrap_cdn']['bootstrap_font_awesome'] = array(
+  $form['bootstrap_lite_cdn']['bootstrap_lite_font_awesome'] = array(
     '#type' => 'select',
     '#title' => t('Font Awesome version'),
     '#options' => backdrop_map_assoc(array(
       '4.4.0',
     )),
-    '#default_value' => theme_get_setting('bootstrap_font_awesome', 'bootstrap'),
+    '#default_value' => theme_get_setting('bootstrap_lite_font_awesome', 'bootstrap'),
     '#empty_option' => t('Disabled'),
     '#empty_value' => NULL,
   );
@@ -177,9 +177,9 @@ function bootstrap_form_system_theme_settings_alter(&$form, &$form_state, $form_
   );
 
     
-  $form['bootswatch']['bootstrap_bootswatch'] = array(
+  $form['bootswatch']['bootstrap_lite_bootswatch'] = array(
     '#type' => 'radios',
-    '#default_value' => theme_get_setting('bootstrap_bootswatch', 'bootstrap'),
+    '#default_value' => theme_get_setting('bootstrap_lite_bootswatch', 'bootstrap'),
     '#options' => $bootswatch_themes,
     '#empty_option' => t('Disabled'),
     '#empty_value' => NULL,
@@ -187,7 +187,7 @@ function bootstrap_form_system_theme_settings_alter(&$form, &$form_state, $form_
     '#suffix' => '</div>',
   );
   if (empty($bootswatch_themes)) {
-    $form['bootswatch']['bootstrap_bootswatch']['#prefix'] = '<div class="alert alert-danger messages error"><strong>' . t('ERROR') . ':</strong> ' . t('Unable to reach Bootswatch API. Please ensure the server your website is hosted on is able to initiate HTTP requests.') . '</div>';
+    $form['bootswatch']['bootstrap_lite_bootswatch']['#prefix'] = '<div class="alert alert-danger messages error"><strong>' . t('ERROR') . ':</strong> ' . t('Unable to reach Bootswatch API. Please ensure the server your website is hosted on is able to initiate HTTP requests.') . '</div>';
   }
 }
 
