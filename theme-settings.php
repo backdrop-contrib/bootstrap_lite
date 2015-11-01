@@ -109,7 +109,7 @@ function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $
     '#default_value' => theme_get_setting('bootstrap_lite_navbar_user_menu', 'bootstrap_lite'),
   );
 
-  backdrop_add_css(backdrop_get_path('theme', 'bootstrap') . '/css/settings.css');
+  backdrop_add_css(backdrop_get_path('theme', 'bootstrap_lite') . '/css/settings.css');
   $form['bootstrap_lite_cdn'] = array(
     '#type' => 'fieldset',
     '#title' => t('BootstrapCDN settings'),
