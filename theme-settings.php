@@ -151,7 +151,7 @@ function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $
   $default_theme_details = array(
     'name' => t('Default'),
     'description' => t('Pure Bootstrap CSS'),
-    'thumbnail' => base_path() . backdrop_get_path('theme', 'bootstrap') . '/preview.jpg',
+    'thumbnail' => base_path() . backdrop_get_path('theme', 'bootstrap_lite') . '/preview.jpg',
   );
   
   $bootswatch_themes[''] = bootstrap_bootswatch_template($default_theme_details);
