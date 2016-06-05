@@ -507,7 +507,7 @@ function bootstrap_lite_admin_block($variables) {
     $output .= '<div class="panel-heading"><h3 class="panel-title">' . $block['title'] . '</h3></div>';
   }
   if (!empty($block['content'])) {
-    $output .= '<div class="body panel-body">' . $block['content'] . '</div>';
+    $output .= $block['content'];
   }
   else {
     $output .= '<div class="description panel-body">' . $block['description'] . '</div>';
