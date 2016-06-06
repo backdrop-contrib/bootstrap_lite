@@ -93,7 +93,7 @@
       </div>
     <?php endif; ?>
   <?php endif; ?>
-  <div class="col-xs-12">
+  <div>
     <?php if ($display_submitted): ?>
     <span class="text-muted pull-right">
         <small class="text-muted"><?php isset($timeago) ? print $timeago : print $date; ?></small>
