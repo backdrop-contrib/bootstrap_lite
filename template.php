@@ -113,7 +113,8 @@ function bootstrap_lite_preprocess_page(&$variables){
   backdrop_add_html_head($no_old_ie_compatibility_modes, 'no_old_ie_compatibility_modes');
   
   if(bootstrap_lite_is_header('get')){
-    if (user_access('access administration bar') && !admin_bar_suppress(FALSE)) {
+    
+    if (function_exists('admin_bar_suppress') && user_access('access administration bar') && !admin_bar_suppress(FALSE)) {
       $variables['classes'][] = 'navbar-admin-bar';
     }
     if($navbar_position = theme_get_setting('bootstrap_lite_navbar_position'))
@@ -122,7 +123,7 @@ function bootstrap_lite_preprocess_page(&$variables){
       
        $config = config('admin_bar.settings');
        
-      if($navbar_position == 'fixed-top' && user_access('access administration bar') && !admin_bar_suppress(FALSE) && !$config->get('position_fixed') ){
+      if(function_exists('admin_bar_suppress') &&  $navbar_position == 'fixed-top' && user_access('access administration bar') && !admin_bar_suppress(FALSE) && !$config->get('position_fixed') ){
         backdrop_add_js(backdrop_get_path('theme', 'bootstrap_lite') . '/js/navbar-fixed-top.js');
       }
       if($navbar_position == 'static-top'){
