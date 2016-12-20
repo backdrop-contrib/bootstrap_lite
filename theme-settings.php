@@ -141,6 +141,7 @@ function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $
     '#title' => t('Font Awesome version'),
     '#options' => backdrop_map_assoc(array(
       '4.4.0',
+      '4.7.0',      
     )),
     '#default_value' => theme_get_setting('bootstrap_lite_font_awesome', 'bootstrap_lite'),
     '#empty_option' => t('Disabled'),
