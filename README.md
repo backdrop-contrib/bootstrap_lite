@@ -3,7 +3,7 @@ It's a clean and minimal Backdrop-oriented Bootstrap-based theme inspired by the
 
 [Demo site](http://bootstrap.backdrop.expert).
 
-##Features
+## Features
 1. [BootstrapCDN](http://bootstrapcdn.com/) based.
 2. [Bootswatch](http://bootswatch.com) support (via BootstrapCDN) included. Easy to pick a Bootswatch free theme.
 3. [Font awesome](https://fortawesome.github.io/Font-Awesome/) support included.
