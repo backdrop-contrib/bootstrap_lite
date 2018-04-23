@@ -1,4 +1,4 @@
-#Bootstrap Lite: a Backdrop Bootstrap-based theme 
+# Bootstrap Lite: a Backdrop Bootstrap-based theme 
 It's a clean and minimal Backdrop-oriented Bootstrap-based theme inspired by the Drupal [Bootstrap](https://www.drupal.org/project/bootstrap) theme. It is a totally separate project from the Drupal [Bootstrap](https://www.drupal.org/project/bootstrap) theme with no guarantied compatibility between the two themes.
 
 [Demo site](http://bootstrap.backdrop.expert).
@@ -21,21 +21,21 @@ It's a clean and minimal Backdrop-oriented Bootstrap-based theme inspired by the
   - Anchors settings. I believe this one needs to be done via a module.
   - Well settings.
 
-##Installation
+## Installation
   - Install this theme using the official [Backdrop CMS instructions](https://backdropcms.org/guide/themes).
 
-##HOWTO
+## HOWTO
   - The navbar content is controlled by a layout block - "Header block". By changing settings for the "Header block", you can control the visibility of the menu, logo, sitename and site slogan.
 
-##Roadmap
+## Roadmap
   1.x-1.3.5.3
     - Tooltops, Popovers implementation in a better way to integrate with Backdrop.
     - Add the ability to have different container settings for different layouts. For example: fluid for Default Layout and fixed for Default Administrative Layout.
 
-##License
+## License
 This project is GPL v2 software. See the LICENSE.txt file in this directory for complete text.
 
-##Credits
+## Credits
 Thanks to the Drupal [Bootstrap theme Authors](http://drupal.org/node/259843/committers)
 
 ## Drupal Bootstrap
