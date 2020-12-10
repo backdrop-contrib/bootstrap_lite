@@ -82,7 +82,7 @@ function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $
     ),
     '#empty_option' => t('Normal'),
   );
-  
+
   $form['navbar']['bootstrap_lite_navbar_menu_position'] = array(
     '#type' => 'select',
     '#title' => t('Navbar Menu Position'),
@@ -94,7 +94,7 @@ function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $
     ),
     '#empty_option' => t('Normal'),
   );
-  
+
   $form['navbar']['bootstrap_lite_navbar_inverse'] = array(
     '#type' => 'checkbox',
     '#title' => t('Inverse navbar style'),
@@ -121,7 +121,7 @@ function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $
     )),
     '#group' => 'bootstrap',
     '#collapsible' => TRUE,
-    '#collapsed' => TRUE,    
+    '#collapsed' => TRUE,
   );
   // BootstrapCDN.
 
@@ -135,13 +135,13 @@ function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $
     '#empty_option' => t('Disabled'),
     '#empty_value' => NULL,
   );
-  
+
   $form['bootstrap_lite_cdn']['bootstrap_lite_font_awesome'] = array(
     '#type' => 'select',
     '#title' => t('Font Awesome version'),
     '#options' => backdrop_map_assoc(array(
       '4.4.0',
-      '4.7.0',      
+      '4.7.0',
     )),
     '#default_value' => theme_get_setting('bootstrap_lite_font_awesome', 'bootstrap_lite'),
     '#empty_option' => t('Disabled'),
@@ -154,16 +154,16 @@ function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $
     'description' => t('Pure Bootstrap CSS'),
     'thumbnail' => base_path() . backdrop_get_path('theme', 'bootstrap_lite') . '/preview.jpg',
   );
-  
+
   $bootswatch_themes[''] = bootstrap_bootswatch_template($default_theme_details);
-  $request = backdrop_http_request('http://api.bootswatch.com/3/');
+  $request = backdrop_http_request('https://bootswatch.com/api/4.json');
   if ($request && $request->code === '200' && !empty($request->data)) {
     if (($api = backdrop_json_decode($request->data)) && is_array($api) && !empty($api['themes'])) {
       foreach ($api['themes'] as $bootswatch_theme) {
         $bootswatch_themes[strtolower($bootswatch_theme['name'])] = bootstrap_bootswatch_template($bootswatch_theme);
       }
     }
-  }  
+  }
   $form['bootswatch'] = array(
     '#type' => 'fieldset',
     '#title' => t('Bootswatch theme'),
@@ -177,7 +177,7 @@ function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $
     )),
   );
 
-    
+
   $form['bootswatch']['bootstrap_lite_bootswatch'] = array(
     '#type' => 'radios',
     '#default_value' => theme_get_setting('bootstrap_lite_bootswatch', 'bootstrap_lite'),
@@ -194,7 +194,7 @@ function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $
 
 function bootstrap_bootswatch_template($bootswatch_theme){
   $output = '<div class="preview">';
-  
+
   if(isset($bootswatch_theme['thumbnail'])){
     $output .= '<div class="image">
       <img src="' . $bootswatch_theme['thumbnail']. '" class="img-responsive" alt="' . $bootswatch_theme['name'] . '">
