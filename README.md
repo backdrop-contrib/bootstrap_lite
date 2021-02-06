@@ -1,8 +1,6 @@
 # Bootstrap Lite: a Backdrop Bootstrap-based theme 
 It's a clean and minimal Backdrop-oriented Bootstrap-based theme inspired by the Drupal [Bootstrap](https://www.drupal.org/project/bootstrap) theme. It is a totally separate project from the Drupal [Bootstrap](https://www.drupal.org/project/bootstrap) theme with no guarantied compatibility between the two themes.
 
-[Demo site](http://bootstrap.backdrop.expert).
-
 ## Features
 1. [BootstrapCDN](http://bootstrapcdn.com/) based.
 2. [Bootswatch](http://bootswatch.com) support (via BootstrapCDN) included. Easy to pick a Bootswatch free theme.
