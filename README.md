@@ -35,6 +35,10 @@ It's a clean and minimal Backdrop-oriented Bootstrap-based theme inspired by the
 ## License
 This project is GPL v2 software. See the LICENSE.txt file in this directory for complete text.
 
+## Current Maintainers
+
+  - Tim Erickson (@stpaultim) https://www.simplo.site
+
 ## Credits
 Thanks to the Drupal [Bootstrap theme Authors](http://drupal.org/node/259843/committers)
 
