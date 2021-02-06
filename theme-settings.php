@@ -156,7 +156,7 @@ function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $
   );
 
   $bootswatch_themes[''] = bootstrap_bootswatch_template($default_theme_details);
-  $request = backdrop_http_request('https://bootswatch.com/api/4.json');
+  $request = backdrop_http_request('https://bootswatch.com/api/3.json');
   if ($request && $request->code === '200' && !empty($request->data)) {
     if (($api = backdrop_json_decode($request->data)) && is_array($api) && !empty($api['themes'])) {
       foreach ($api['themes'] as $bootswatch_theme) {
