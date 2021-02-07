@@ -250,3 +250,41 @@ h1.page-title {
 ul.pager {
   padding-top: 20px;
 }
+
+/* Fixing problem with width of container */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1170px;
+  }
+}
+
+.navbar-is-fixed .l-header {
+/*  margin-top: 10px;*/
+}
+
+/* Navbar too narrow out of box */
+#navbar .container {
+  padding: 10px 20px;
+}
+
+img {
+  margin: 20px 0;
+}
+
+footer, .block-system-main-menu {
+  display: block;
+  padding: 20px 0px;
+}
+
+/* Force password field to be full width */
+span.password-toggle-wrapper {
+  width: 100%;
+}
+
+/* Overrides for specific Bootswatch themes */
+
+/* Cyborg */
+
+.cyborg .menu-dropdown a {
+  color: #888888;
+}

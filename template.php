@@ -110,6 +110,12 @@ function bootstrap_lite_preprocess_page(&$variables){
       'content' => 'IE=edge',
     ),
   );
+
+  // Adding class for bootswatch theme to help with css overrides
+  if ($bootswatch = theme_get_setting('bootstrap_lite_bootswatch')) {
+    $variables['classes'][] = $bootswatch;
+  }
+
   backdrop_add_html_head($no_old_ie_compatibility_modes, 'no_old_ie_compatibility_modes');
   
   if(bootstrap_lite_is_header('get')){

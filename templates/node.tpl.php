@@ -98,7 +98,7 @@
     <span class="text-muted pull-right">
         <small class="text-muted"><?php isset($timeago) ? print $timeago : print $date; ?></small>
     </span>
-    <strong class="text-success"><?php print theme('username',array('account' => user_load($uid))); ?></strong>
+    <strong><?php print theme('username',array('account' => user_load($uid))); ?></strong>
     <?php endif; ?>
   
     <?php print render($title_prefix); ?>
