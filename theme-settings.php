@@ -130,6 +130,8 @@ function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $
     '#title' => t('BootstrapCDN version'),
     '#options' => backdrop_map_assoc(array(
       '3.3.5',
+      '3.3.6',
+      '3.3.7',
     )),
     '#default_value' => theme_get_setting('bootstrap_lite_cdn', 'bootstrap_lite'),
     '#empty_option' => t('Disabled'),
