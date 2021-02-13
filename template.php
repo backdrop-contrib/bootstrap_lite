@@ -13,15 +13,16 @@ function bootstrap_lite_css_alter(&$css) {
   if ($bootstrap_cdn = theme_get_setting('bootstrap_lite_cdn')) {
     // Add CDN.
     if ($bootswatch = theme_get_setting('bootstrap_lite_bootswatch')) {
-      $cdn = '//netdna.bootstrapcdn.com/bootswatch/' . $bootstrap_cdn  . '/' . $bootswatch . '/bootstrap.min.css';
+      $cdn = 'https://stackpath.bootstrapcdn.com/bootswatch/' . $bootstrap_cdn  . '/' . $bootswatch . '/bootstrap.min.css';
     }
     else {
-      $cdn = '//netdna.bootstrapcdn.com/bootstrap/' . $bootstrap_cdn  . '/css/bootstrap.min.css';
+      $cdn = 'https://stackpath.bootstrapcdn.com/bootstrap/' . $bootstrap_cdn  . '/css/bootstrap.min.css';
     }
     $css[$cdn] = array(
       'data' => $cdn,
       'type' => 'external',
       'every_page' => TRUE,
+      'every_page_weight' => -1,
       'media' => 'all',
       'preprocess' => FALSE,
       'group' => CSS_THEME,
@@ -34,6 +35,7 @@ function bootstrap_lite_css_alter(&$css) {
       'data' => $override,
       'type' => 'file',
       'every_page' => TRUE,
+      'every_page_weight' => -1,
       'media' => 'all',
       'preprocess' => TRUE,
       'group' => CSS_THEME,
@@ -42,11 +44,12 @@ function bootstrap_lite_css_alter(&$css) {
     );
   }
   if ($font_awesome = theme_get_setting('bootstrap_lite_font_awesome')) {
-    $awesome = 'https://maxcdn.bootstrapcdn.com/font-awesome/' . $font_awesome . '/css/font-awesome.min.css';
+    $awesome = 'https://stackpath.bootstrapcdn.com/font-awesome/' . $font_awesome . '/css/font-awesome.min.css';
     $css[$awesome] = array(
       'data' => $awesome,
       'type' => 'external',
       'every_page' => TRUE,
+      'every_page_weight' => -1,
       'media' => 'all',
       'preprocess' => FALSE,
       'group' => CSS_THEME,
@@ -62,11 +65,12 @@ function bootstrap_lite_css_alter(&$css) {
  */
 function bootstrap_lite_js_alter(&$js) {
   if (theme_get_setting('bootstrap_lite_cdn')) {
-    $cdn = '//netdna.bootstrapcdn.com/bootstrap/' . theme_get_setting('bootstrap_lite_cdn')  . '/js/bootstrap.min.js';
+    $cdn = 'https://stackpath.bootstrapcdn.com/bootstrap/' . theme_get_setting('bootstrap_lite_cdn')  . '/js/bootstrap.min.js';
     $js[$cdn] = backdrop_js_defaults();
     $js[$cdn]['data'] = $cdn;
     $js[$cdn]['type'] = 'external';
     $js[$cdn]['every_page'] = TRUE;
+    $js[$cdn]['every_page_weight'] = -1;
     $js[$cdn]['weight'] = -100;
   }
 }
@@ -89,13 +93,13 @@ function bootstrap_lite_is_header($set){
 function bootstrap_lite_preprocess_layout(&$variables) {
   $layout = $variables['layout'];
   $layout_name = $layout->layout;
-  
+
   foreach($layout->content as $key => $block){
     if($block->module == 'system' && $block->delta == 'header'){
       bootstrap_lite_is_header(true);
     }
   }
-  
+
   backdrop_add_js('(function($){ $(".layout").addClass("' . theme_get_setting('bootstrap_lite_container') . '");})(jQuery);', array('type' => 'inline', 'scope' => 'footer'));
 }
 
@@ -117,18 +121,18 @@ function bootstrap_lite_preprocess_page(&$variables){
   }
 
   backdrop_add_html_head($no_old_ie_compatibility_modes, 'no_old_ie_compatibility_modes');
-  
+
   if(bootstrap_lite_is_header('get')){
-    
+
     if (function_exists('admin_bar_suppress') && user_access('access administration bar') && !admin_bar_suppress(FALSE)) {
       $variables['classes'][] = 'navbar-admin-bar';
     }
     if($navbar_position = theme_get_setting('bootstrap_lite_navbar_position'))
     {
       $variables['classes'][] = 'navbar-is-' . $navbar_position;
-      
+
        $config = config('admin_bar.settings');
-       
+
       if(function_exists('admin_bar_suppress') &&  $navbar_position == 'fixed-top' && user_access('access administration bar') && !admin_bar_suppress(FALSE) && !$config->get('position_fixed') ){
         backdrop_add_js(backdrop_get_path('theme', 'bootstrap_lite') . '/js/navbar-fixed-top.js');
       }
@@ -144,21 +148,21 @@ function bootstrap_lite_preprocess_page(&$variables){
  */
 function bootstrap_lite_preprocess_header(&$variables){
   $variables['navigation'] = '';
-  
+
   if($navbar_position = theme_get_setting('bootstrap_lite_navbar_user_menu'))
   {
     $user_menu = menu_tree('user-menu');
     $variables['navigation'] = render($user_menu);
   }
-  
+
   $variables['navbar_classes_array'] = array('navbar');
   if($navbar_position = theme_get_setting('bootstrap_lite_navbar_position'))
   {
     $variables['navbar_classes_array'][] = 'navbar-' . $navbar_position;
   }
-  
+
   $variables['container_class'] = theme_get_setting('bootstrap_lite_container');
-  
+
   if (theme_get_setting('bootstrap_lite_navbar_inverse')) {
     $variables['navbar_classes_array'][] = 'navbar-inverse';
   }
@@ -263,12 +267,12 @@ function bootstrap_lite_button($variables) {
       }
     }
     if($default){
-      $variables['element']['#attributes']['class'][] = 'btn-default';  
+      $variables['element']['#attributes']['class'][] = 'btn-default';
     }
   } else{
     $variables['element']['#attributes']['class'][] = 'btn-default';
   }
-   
+
   $variables['element']['#attributes']['class'][] = 'btn';
   return theme_button($variables);
 }
@@ -418,9 +422,9 @@ function bootstrap_lite_password($variables) {
 function bootstrap_lite_search($variables) {
 
   if(isset($variables['element']['#attributes']['placeholder']) && $variables['element']['#attributes']['placeholder'] == t('Menu search')){
-    return theme_search($variables);  
+    return theme_search($variables);
   }
-  
+
   $variables['element']['#attributes']['class'][] = 'form-control';
   return theme_search($variables);
 }
@@ -442,7 +446,7 @@ function bootstrap_lite_search($variables) {
  */
 function bootstrap_lite_select($variables) {
   if(isset($variables['element']['#size'])){
-    unset($variables['element']['#size']);  
+    unset($variables['element']['#size']);
   }
   $variables['element']['#attributes']['class'][] = 'form-control';
   return theme_select($variables);
@@ -675,7 +679,7 @@ function bootstrap_lite_menu_local_actions(&$variables) {
           $variables['actions'][$key]['#link']['localized_options']['html'] = TRUE;
     }
   }
-  
+
   $output = backdrop_render($variables['actions']);
   if ($output) {
     $output = '<ul class="nav nav-pills action-links">' . $output . '</ul>';
