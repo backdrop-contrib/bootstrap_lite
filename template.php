@@ -13,15 +13,16 @@ function bootstrap_lite_css_alter(&$css) {
   if ($bootstrap_cdn = theme_get_setting('bootstrap_lite_cdn')) {
     // Add CDN.
     if ($bootswatch = theme_get_setting('bootstrap_lite_bootswatch')) {
-      $cdn = '//netdna.bootstrapcdn.com/bootswatch/' . $bootstrap_cdn  . '/' . $bootswatch . '/bootstrap.min.css';
+      $cdn = 'https://stackpath.bootstrapcdn.com/bootswatch/' . $bootstrap_cdn  . '/' . $bootswatch . '/bootstrap.min.css';
     }
     else {
-      $cdn = '//netdna.bootstrapcdn.com/bootstrap/' . $bootstrap_cdn  . '/css/bootstrap.min.css';
+      $cdn = 'https://stackpath.bootstrapcdn.com/bootstrap/' . $bootstrap_cdn  . '/css/bootstrap.min.css';
     }
     $css[$cdn] = array(
       'data' => $cdn,
       'type' => 'external',
       'every_page' => TRUE,
+      'every_page_weight' => -1,
       'media' => 'all',
       'preprocess' => FALSE,
       'group' => CSS_THEME,
@@ -34,6 +35,7 @@ function bootstrap_lite_css_alter(&$css) {
       'data' => $override,
       'type' => 'file',
       'every_page' => TRUE,
+      'every_page_weight' => -1,
       'media' => 'all',
       'preprocess' => TRUE,
       'group' => CSS_THEME,
@@ -42,11 +44,12 @@ function bootstrap_lite_css_alter(&$css) {
     );
   }
   if ($font_awesome = theme_get_setting('bootstrap_lite_font_awesome')) {
-    $awesome = 'https://maxcdn.bootstrapcdn.com/font-awesome/' . $font_awesome . '/css/font-awesome.min.css';
+    $awesome = 'https://stackpath.bootstrapcdn.com/font-awesome/' . $font_awesome . '/css/font-awesome.min.css';
     $css[$awesome] = array(
       'data' => $awesome,
       'type' => 'external',
       'every_page' => TRUE,
+      'every_page_weight' => -1,
       'media' => 'all',
       'preprocess' => FALSE,
       'group' => CSS_THEME,
@@ -62,11 +65,12 @@ function bootstrap_lite_css_alter(&$css) {
  */
 function bootstrap_lite_js_alter(&$js) {
   if (theme_get_setting('bootstrap_lite_cdn')) {
-    $cdn = '//netdna.bootstrapcdn.com/bootstrap/' . theme_get_setting('bootstrap_lite_cdn')  . '/js/bootstrap.min.js';
+    $cdn = 'https://stackpath.bootstrapcdn.com/bootstrap/' . theme_get_setting('bootstrap_lite_cdn')  . '/js/bootstrap.min.js';
     $js[$cdn] = backdrop_js_defaults();
     $js[$cdn]['data'] = $cdn;
     $js[$cdn]['type'] = 'external';
     $js[$cdn]['every_page'] = TRUE;
+    $js[$cdn]['every_page_weight'] = -1;
     $js[$cdn]['weight'] = -100;
   }
 }

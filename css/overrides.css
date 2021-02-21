@@ -281,6 +281,13 @@ span.password-toggle-wrapper {
   width: 100%;
 }
 
+/* Fixes a conflict between Bootstrap and the admin bar */
+
+#admin-bar .dropdown li > a, 
+#admin-bar .dropdown li > span {
+  margin-bottom: 0;
+}
+
 /* Overrides for specific Bootswatch themes */
 
 /* Cyborg */
