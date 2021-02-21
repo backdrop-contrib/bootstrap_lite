@@ -100,7 +100,14 @@ function bootstrap_lite_preprocess_layout(&$variables) {
     }
   }
 
-  backdrop_add_js('(function($){ $(".layout").addClass("' . theme_get_setting('bootstrap_lite_container') . '");})(jQuery);', array('type' => 'inline', 'scope' => 'footer'));
+  // Default Backdrop layouts contain both .container and .container-fluid.
+  // Remove the one we're not using.
+  if (theme_get_setting('bootstrap_lite_container') == 'container') {
+    backdrop_add_js('(function($){ $(".container.container-fluid").removeClass("container-fluid");})(jQuery);', array('type' => 'inline', 'scope' => 'footer'));
+  }
+  else {
+    backdrop_add_js('(function($){ $(".container.container-fluid").removeClass("container");})(jQuery);', array('type' => 'inline', 'scope' => 'footer'));
+  }
 }
 
 /**
