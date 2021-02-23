@@ -129,6 +129,30 @@ function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $
     '#description' => t('If your site has a module dedicated to handling breadcrumbs already, ensure this setting is disabled.'),
   );
 
+  $form['tweaks'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Tweaks'),
+    '#group' => 'bootstrap',
+  );
+
+  $form['tweaks']['bootstrap_lite_container'] = array(
+    '#type' => 'select',
+    '#title' => t('Container type'),
+    '#default_value' => theme_get_setting('bootstrap_lite_container', 'bootstrap_lite'),
+    '#description' => t('Switch between full width (fluid) or fixed (max 1170px) width.'),
+    '#options' => array(
+      'container' => t('Fixed'),
+      'container-fluid' => t('Fluid'),
+    )
+  );
+
+  $form['tweaks']['bootstrap_lite_datetime'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Show "XX time ago".'),
+    '#default_value' => theme_get_setting('bootstrap_lite_datetime', 'bootstrap_lite'),
+    '#description' => t('If enabled, replace date output for nodes and comments by "XX time ago".'),
+  );
+
   backdrop_add_css(backdrop_get_path('theme', 'bootstrap_lite') . '/css/settings.css');
   $form['bootstrap_lite_cdn'] = array(
     '#type' => 'fieldset',
@@ -143,6 +167,7 @@ function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $
     '#collapsible' => TRUE,
     '#collapsed' => TRUE,
   );
+
   // BootstrapCDN.
 
   $form['bootstrap_lite_cdn']['bootstrap_lite_cdn'] = array(
@@ -170,30 +195,6 @@ function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $
     '#default_value' => theme_get_setting('bootstrap_lite_font_awesome', 'bootstrap_lite'),
     '#empty_option' => t('Disabled'),
     '#empty_value' => NULL,
-  );
-
-  $form['tweaks'] = array(
-    '#type' => 'fieldset',
-    '#title' => t('Tweaks'),
-    '#group' => 'bootstrap',
-  );
-
-  $form['tweaks']['bootstrap_lite_container'] = array(
-    '#type' => 'select',
-    '#title' => t('Container type'),
-    '#default_value' => theme_get_setting('bootstrap_lite_container', 'bootstrap_lite'),
-    '#description' => t('Switch between full width (fluid) or fixed (max 1170px) width.'),
-    '#options' => array(
-      'container' => t('Fixed'),
-      'container-fluid' => t('Fluid'),
-    )
-  );
-
-  $form['tweaks']['bootstrap_lite_datetime'] = array(
-    '#type' => 'checkbox',
-    '#title' => t('Show "XX time ago".'),
-    '#default_value' => theme_get_setting('bootstrap_lite_datetime', 'bootstrap_lite'),
-    '#description' => t('If enabled, replace date output for nodes and comments by "XX time ago".'),
   );
 }
 
