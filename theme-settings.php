@@ -18,51 +18,51 @@ function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $
     '#weight' => -10,
   );
   // Components.
-  $form['tweaks'] = array(
+
+  $bootswatch_themes = array();
+  $default_theme_details = array(
+    'name' => t('Default'),
+    'description' => t('Pure Bootstrap CSS'),
+    'thumbnail' => base_path() . backdrop_get_path('theme', 'bootstrap_lite') . '/preview.jpg',
+  );
+
+  $bootswatch_themes[''] = bootstrap_bootswatch_template($default_theme_details);
+  $request = backdrop_http_request('https://bootswatch.com/api/3.json');
+  if ($request && $request->code === '200' && !empty($request->data)) {
+    if (($api = backdrop_json_decode($request->data)) && is_array($api) && !empty($api['themes'])) {
+      foreach ($api['themes'] as $bootswatch_theme) {
+        $bootswatch_themes[strtolower($bootswatch_theme['name'])] = bootstrap_bootswatch_template($bootswatch_theme);
+      }
+    }
+  }
+  $form['bootswatch'] = array(
     '#type' => 'fieldset',
-    '#title' => t('Tweaks'),
-    '#group' => 'bootstrap',
-  );
-
-  $form['tweaks']['bootstrap_lite_container'] = array(
-    '#type' => 'select',
-    '#title' => t('Container type'),
-    '#default_value' => theme_get_setting('bootstrap_lite_container', 'bootstrap_lite'),
-    '#description' => t('Switch between full width (fluid) or fixed (max 1170px) width.'),
-    '#options' => array(
-      'container' => t('Fixed'),
-      'container-fluid' => t('Fluid'),
-    )
-  );
-
-  $form['tweaks']['bootstrap_lite_datetime'] = array(
-    '#type' => 'checkbox',
-    '#title' => t('Show "XX time ago".'),
-    '#default_value' => theme_get_setting('bootstrap_lite_datetime', 'bootstrap_lite'),
-    '#description' => t('If enabled, replace date output for nodes and comments by "XX time ago".'),
-  );
-
-  $form['breadcrumbs'] = array(
-    '#type' => 'fieldset',
-    '#title' => t('Breadcrumbs'),
+    '#title' => t('Bootswatch theme'),
     '#collapsible' => TRUE,
     '#collapsed' => TRUE,
     '#group' => 'bootstrap',
-  );
-  $form['breadcrumbs']['bootstrap_lite_breadcrumb_home'] = array(
-    '#type' => 'checkbox',
-    '#title' => t('Show "Home" breadcrumb link'),
-    '#default_value' => theme_get_setting('bootstrap_lite_breadcrumb_home', 'bootstrap_lite'),
-    '#description' => t('If your site has a module dedicated to handling breadcrumbs already, ensure this setting is enabled.'),
-  );
-  $form['breadcrumbs']['bootstrap_lite_breadcrumb_title'] = array(
-    '#type' => 'checkbox',
-    '#title' => t('Show current page title at end'),
-    '#default_value' => theme_get_setting('bootstrap_lite_breadcrumb_title', 'bootstrap_lite'),
-    '#description' => t('If your site has a module dedicated to handling breadcrumbs already, ensure this setting is disabled.'),
+    '#description' => t('Use !bootstrapcdn to serve a Bootswatch Theme. Choose Bootswatch theme here.', array(
+      '!bootstrapcdn' => l(t('BootstrapCDN'), 'http://bootstrapcdn.com', array(
+        'external' => TRUE,
+      )),
+    )),
   );
 
-  $form['navbar'] = array(
+
+  $form['bootswatch']['bootstrap_lite_bootswatch'] = array(
+    '#type' => 'radios',
+    '#default_value' => theme_get_setting('bootstrap_lite_bootswatch', 'bootstrap_lite'),
+    '#options' => $bootswatch_themes,
+    '#empty_option' => t('Disabled'),
+    '#empty_value' => NULL,
+    '#prefix' => '<div class="section-preview">',
+    '#suffix' => '</div>',
+  );
+  if (empty($bootswatch_themes)) {
+    $form['bootswatch']['bootstrap_lite_bootswatch']['#prefix'] = '<div class="alert alert-danger messages error"><strong>' . t('ERROR') . ':</strong> ' . t('Unable to reach Bootswatch API. Please ensure the server your website is hosted on is able to initiate HTTP requests.') . '</div>';
+  }
+
+    $form['navbar'] = array(
     '#type' => 'fieldset',
     '#title' => t('Navbar'),
     '#description' => t('Navigation bar settings.'),
@@ -109,6 +109,26 @@ function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $
     '#default_value' => theme_get_setting('bootstrap_lite_navbar_user_menu', 'bootstrap_lite'),
   );
 
+  $form['breadcrumbs'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Breadcrumbs'),
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+    '#group' => 'bootstrap',
+  );
+  $form['breadcrumbs']['bootstrap_lite_breadcrumb_home'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Show "Home" breadcrumb link'),
+    '#default_value' => theme_get_setting('bootstrap_lite_breadcrumb_home', 'bootstrap_lite'),
+    '#description' => t('If your site has a module dedicated to handling breadcrumbs already, ensure this setting is enabled.'),
+  );
+  $form['breadcrumbs']['bootstrap_lite_breadcrumb_title'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Show current page title at end'),
+    '#default_value' => theme_get_setting('bootstrap_lite_breadcrumb_title', 'bootstrap_lite'),
+    '#description' => t('If your site has a module dedicated to handling breadcrumbs already, ensure this setting is disabled.'),
+  );
+
   backdrop_add_css(backdrop_get_path('theme', 'bootstrap_lite') . '/css/settings.css');
   $form['bootstrap_lite_cdn'] = array(
     '#type' => 'fieldset',
@@ -152,48 +172,29 @@ function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $
     '#empty_value' => NULL,
   );
 
-  $bootswatch_themes = array();
-  $default_theme_details = array(
-    'name' => t('Default'),
-    'description' => t('Pure Bootstrap CSS'),
-    'thumbnail' => base_path() . backdrop_get_path('theme', 'bootstrap_lite') . '/preview.jpg',
-  );
-
-  $bootswatch_themes[''] = bootstrap_bootswatch_template($default_theme_details);
-  $request = backdrop_http_request('https://bootswatch.com/api/3.json');
-  if ($request && $request->code === '200' && !empty($request->data)) {
-    if (($api = backdrop_json_decode($request->data)) && is_array($api) && !empty($api['themes'])) {
-      foreach ($api['themes'] as $bootswatch_theme) {
-        $bootswatch_themes[strtolower($bootswatch_theme['name'])] = bootstrap_bootswatch_template($bootswatch_theme);
-      }
-    }
-  }
-  $form['bootswatch'] = array(
+  $form['tweaks'] = array(
     '#type' => 'fieldset',
-    '#title' => t('Bootswatch theme'),
-    '#collapsible' => TRUE,
-    '#collapsed' => TRUE,
+    '#title' => t('Tweaks'),
     '#group' => 'bootstrap',
-    '#description' => t('Use !bootstrapcdn to serve a Bootswatch Theme. Choose Bootswatch theme here.', array(
-      '!bootstrapcdn' => l(t('BootstrapCDN'), 'http://bootstrapcdn.com', array(
-        'external' => TRUE,
-      )),
-    )),
   );
 
-
-  $form['bootswatch']['bootstrap_lite_bootswatch'] = array(
-    '#type' => 'radios',
-    '#default_value' => theme_get_setting('bootstrap_lite_bootswatch', 'bootstrap_lite'),
-    '#options' => $bootswatch_themes,
-    '#empty_option' => t('Disabled'),
-    '#empty_value' => NULL,
-    '#prefix' => '<div class="section-preview">',
-    '#suffix' => '</div>',
+  $form['tweaks']['bootstrap_lite_container'] = array(
+    '#type' => 'select',
+    '#title' => t('Container type'),
+    '#default_value' => theme_get_setting('bootstrap_lite_container', 'bootstrap_lite'),
+    '#description' => t('Switch between full width (fluid) or fixed (max 1170px) width.'),
+    '#options' => array(
+      'container' => t('Fixed'),
+      'container-fluid' => t('Fluid'),
+    )
   );
-  if (empty($bootswatch_themes)) {
-    $form['bootswatch']['bootstrap_lite_bootswatch']['#prefix'] = '<div class="alert alert-danger messages error"><strong>' . t('ERROR') . ':</strong> ' . t('Unable to reach Bootswatch API. Please ensure the server your website is hosted on is able to initiate HTTP requests.') . '</div>';
-  }
+
+  $form['tweaks']['bootstrap_lite_datetime'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Show "XX time ago".'),
+    '#default_value' => theme_get_setting('bootstrap_lite_datetime', 'bootstrap_lite'),
+    '#description' => t('If enabled, replace date output for nodes and comments by "XX time ago".'),
+  );
 }
 
 function bootstrap_bootswatch_template($bootswatch_theme){
