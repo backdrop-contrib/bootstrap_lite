@@ -62,7 +62,7 @@ function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $
     $form['bootswatch']['bootstrap_lite_bootswatch']['#prefix'] = '<div class="alert alert-danger messages error"><strong>' . t('ERROR') . ':</strong> ' . t('Unable to reach Bootswatch API. Please ensure the server your website is hosted on is able to initiate HTTP requests.') . '</div>';
   }
 
-    $form['navbar'] = array(
+  $form['navbar'] = array(
     '#type' => 'fieldset',
     '#title' => t('Navbar'),
     '#description' => t('Navigation bar settings.'),
