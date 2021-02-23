@@ -38,6 +38,7 @@ This project is GPL v2 software. See the LICENSE.txt file in this directory for 
 ## Current Maintainers
 
   - Tim Erickson (@stpaultim) https://www.simplo.site
+  - Robert Lang (@bugfolder) 
 
 ## Credits
 Thanks to the Drupal [Bootstrap theme Authors](http://drupal.org/node/259843/committers)
