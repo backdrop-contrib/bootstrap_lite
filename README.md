@@ -57,6 +57,8 @@ Credits
 
 Thanks to the Drupal [Bootstrap theme authors](http://drupal.org/node/259843/committers).
 
+Thanks to [Gormartsen](https://github.com/Gormartsen) for the original port to Backdrop CMS. 
+
 
 License
 -------
