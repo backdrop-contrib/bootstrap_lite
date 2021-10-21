@@ -311,7 +311,7 @@ function bootstrap_lite_email($variables) {
  *
  * @ingroup themeable
  */
-function bootstrap5_lite_webform_email($variables) {
+function bootstrap_lite_webform_email($variables) {
   $variables['element']['#attributes']['class'][] = 'form-control';
   return theme_webform_email($variables);
 }
