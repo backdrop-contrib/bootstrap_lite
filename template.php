@@ -159,7 +159,7 @@ function bootstrap_lite_preprocess_page(&$variables){
 
   backdrop_add_html_head($no_old_ie_compatibility_modes, 'no_old_ie_compatibility_modes');
 
-  if (bootstrap_lite_is_header('get')){
+  if (bootstrap_lite_is_header('get')) {
 
     if (function_exists('admin_bar_suppress') && user_access('access administration bar') && !admin_bar_suppress(FALSE)) {
       $variables['classes'][] = 'navbar-admin-bar';
@@ -177,6 +177,29 @@ function bootstrap_lite_preprocess_page(&$variables){
         backdrop_add_js(backdrop_get_path('theme', 'bootstrap_lite') . '/js/navbar-static-top.js');
       }
     }
+  }
+
+  // Add 'not-front' if we're not front.
+  if (!$variables['is_front']) {
+    $variables['classes'][] = 'not-front';
+  }
+
+  // Add classes based on normal path parts.
+  $normal_path = strtolower(backdrop_get_normal_path(request_path()));
+  $normal_path = str_replace('_', '-', $normal_path);
+  $path_parts = $normal_path ? explode('/', $normal_path) : array();
+  if (!empty($path_parts)) {
+    $path_classes = array('page-' . $path_parts[0]);
+    for ($i = 1; $i < count($path_parts); $i++) {
+      $path_classes[] = $path_classes[$i - 1] . '-' . $path_parts[$i];
+    }
+    $variables['classes'] = array_merge($variables['classes'], $path_classes);
+  }
+
+  // Add classes based on user roles.
+  global $user;
+  foreach ($user->roles as $role) {
+    $variables['classes'][] = 'role-' . $role;
   }
 }
 
