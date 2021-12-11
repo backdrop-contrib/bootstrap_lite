@@ -16,7 +16,7 @@ function bootstrap_lite_css_alter(&$css) {
     $bootswatch = theme_get_setting('bootstrap_lite_bootswatch');
     if ($cdn_version == 'module') {
       // Use bundled library
-      $bootstrap_src = backdrop_get_path('theme', 'bootstrap_lite') . '/css/';
+      $bootstrap_src = '/' . backdrop_get_path('theme', 'bootstrap_lite') . '/css/';
       if ($bootswatch) {
         $bootstrap_src .= 'bootswatch/' . $bootswatch . '/bootstrap.min.css';
       }
@@ -34,7 +34,6 @@ function bootstrap_lite_css_alter(&$css) {
         $bootstrap_src .= 'bootstrap/' . $cdn_version . '/css/bootstrap.min.css';
       }
     }
-
     $css[$bootstrap_src] = array(
       'data' => $bootstrap_src,
       'type' => 'external',
@@ -63,11 +62,13 @@ function bootstrap_lite_css_alter(&$css) {
   }
 
   if ($font_awesome = theme_get_setting('bootstrap_lite_font_awesome')) {
-    if ($font_awesome != 'module') {
-      $font_awesome_src = 'https://stackpath.bootstrapcdn.com/font-awesome/' . $font_awesome . '/css/font-awesome.min.css';
+    if ($font_awesome == 'module') {
+      // User bundled library
+      $font_awesome_src = '/' . backdrop_get_path('theme', 'bootstrap_lite') . '/css/font-awesome.min.css';
     }
     else {
-      $font_awesome_src = backdrop_get_path('theme', 'bootstrap_lite') . '/css/font-awesome.min.css';
+      // Use CDN.
+      $font_awesome_src = 'https://stackpath.bootstrapcdn.com/font-awesome/' . $font_awesome . '/css/font-awesome.min.css';
     }
     $css[$font_awesome_src] = array(
       'data' => $font_awesome_src,
@@ -89,11 +90,13 @@ function bootstrap_lite_css_alter(&$css) {
 function bootstrap_lite_js_alter(&$js) {
   $cdn_version = theme_get_setting('bootstrap_lite_cdn');
   if ($cdn_version) {
-    if ($cdn_version != 'module') {
-      $js_src = 'https://stackpath.bootstrapcdn.com/bootstrap/' .$cdn_version  . '/js/bootstrap.min.js';
+    if ($cdn_version == 'module') {
+      // Use bundled library
+      $js_src = '/' . backdrop_get_path('theme', 'bootstrap_lite') . '/js/bootstrap.min.js';
     }
     else {
-      $js_src = backdrop_get_path('theme', 'bootstrap_lite') . '/js/bootstrap.min.js';
+      // Use CDN
+      $js_src = 'https://stackpath.bootstrapcdn.com/bootstrap/' .$cdn_version  . '/js/bootstrap.min.js';
     }
     $js[$js_src] = backdrop_js_defaults();
     $js[$js_src]['data'] = $js_src;
