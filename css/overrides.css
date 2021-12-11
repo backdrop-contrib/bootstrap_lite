@@ -277,8 +277,11 @@ footer, .block-system-main-menu {
 }
 
 /* Fixing core problem with drop down menu */
-.menu-dropdown li.has-children > a {
-  padding-right: 58px;
+.js .menu-dropdown a,
+.js .menu-dropdown a:hover,
+.js .menu-dropdown a:focus,
+.js .menu-dropdown a:active {
+  padding-right: 24px;
 }
 
 /* Force password field to be full width */
