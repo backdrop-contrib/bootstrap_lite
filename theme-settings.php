@@ -17,7 +17,54 @@ function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $
     '#prefix' => '<h2><small>' . t('Bootstrap Settings') . '</small></h2>',
     '#weight' => -10,
   );
-  // Components.
+  backdrop_add_css(backdrop_get_path('theme', 'bootstrap_lite') . '/css/settings.css');
+
+  // Version and CDN.
+
+  $form['bootstrap_lite_cdn'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Version and CDN'),
+    '#description' => t('You may use the !bootstrapcdn or choose the bundled library to serve the Bootstrap framework files. If you disable these settings, you must provide your own Bootstrap source and/or optional CDN delivery implementation. !warning', array(
+      '!bootstrapcdn' => l(t('BootstrapCDN'), 'http://bootstrapcdn.com', array(
+        'external' => TRUE,
+      )),
+    '!warning' => '<div class="alert alert-info messages info"><strong>' . t('NOTE') . ':</strong> ' . t('While BootstrapCDN (content distribution network) is the preferred method for providing performance gains in load time, this method does depend on using this third party service. BootstrapCDN is under no obligation or commitment to provide guaranteed up-time or service quality for this theme.') . '</div>',
+    )),
+    '#group' => 'bootstrap',
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+  );
+
+  $form['bootstrap_lite_cdn']['bootstrap_lite_cdn'] = array(
+    '#type' => 'select',
+    '#title' => t('Bootstrap version'),
+    '#options' => array(
+      '3.3.5' => t('3.3.5 (CDN)'),
+      '3.3.6' => t('3.3.6 (CDN)'),
+      '3.3.7' => t('3.3.7 (CDN)'),
+      '3.4.0' => t('3.4.0 (CDN)'),
+      '3.4.1' => t('3.4.1 (CDN)'),
+      'module' => t('3.4.1 (bundled)'),
+    ),
+    '#default_value' => theme_get_setting('bootstrap_lite_cdn', $theme_name),
+    '#empty_option' => t('Disabled'),
+    '#empty_value' => NULL,
+  );
+
+  $form['bootstrap_lite_cdn']['bootstrap_lite_font_awesome'] = array(
+    '#type' => 'select',
+    '#title' => t('Font Awesome version'),
+    '#options' => array(
+      '4.4.0' => t('4.4.0 (CDN)'),
+      '4.7.0' => t('4.7.0 (CDN)'),
+      'module' => t('4.7.0 (bundled)'),
+    ),
+    '#default_value' => theme_get_setting('bootstrap_lite_font_awesome', $theme_name),
+    '#empty_option' => t('Disabled'),
+    '#empty_value' => NULL,
+  );
+
+  // Bootswatch
 
   $bootswatch_themes = array();
   $default_theme_details = array(
@@ -41,13 +88,12 @@ function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $
     '#collapsible' => TRUE,
     '#collapsed' => TRUE,
     '#group' => 'bootstrap',
-    '#description' => t('Use !bootstrapcdn to serve a Bootswatch Theme. Choose Bootswatch theme here.', array(
+    '#description' => t('You can use the default Bootstrap theme or a Bootswatch theme, which you can choose here. If you selected a CDN version of Bootstrap, the Bootswatch theme will be served up from the !bootstrapcdn; otherwise it will use the bundled version.', array(
       '!bootstrapcdn' => l(t('BootstrapCDN'), 'http://bootstrapcdn.com', array(
         'external' => TRUE,
       )),
     )),
   );
-
 
   $form['bootswatch']['bootstrap_lite_bootswatch'] = array(
     '#type' => 'radios',
@@ -61,6 +107,8 @@ function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $
   if (empty($bootswatch_themes)) {
     $form['bootswatch']['bootstrap_lite_bootswatch']['#prefix'] = '<div class="alert alert-danger messages error"><strong>' . t('ERROR') . ':</strong> ' . t('Unable to reach Bootswatch API. Please ensure the server your website is hosted on is able to initiate HTTP requests.') . '</div>';
   }
+
+  // Navbar
 
   $form['navbar'] = array(
     '#type' => 'fieldset',
@@ -109,6 +157,8 @@ function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $
     '#default_value' => theme_get_setting('bootstrap_lite_navbar_user_menu', $theme_name),
   );
 
+  // Breadcrumbs
+
   $form['breadcrumbs'] = array(
     '#type' => 'fieldset',
     '#title' => t('Breadcrumbs'),
@@ -128,6 +178,8 @@ function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $
     '#default_value' => theme_get_setting('bootstrap_lite_breadcrumb_title', $theme_name),
     '#description' => t('If your site has a module dedicated to handling breadcrumbs already, ensure this setting is disabled.'),
   );
+
+  // Tweaks
 
   $form['tweaks'] = array(
     '#type' => 'fieldset',
@@ -153,49 +205,6 @@ function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $
     '#description' => t('If enabled, replace date output for nodes and comments by "XX time ago".'),
   );
 
-  backdrop_add_css(backdrop_get_path('theme', 'bootstrap_lite') . '/css/settings.css');
-  $form['bootstrap_lite_cdn'] = array(
-    '#type' => 'fieldset',
-    '#title' => t('BootstrapCDN settings'),
-    '#description' => t('Use !bootstrapcdn to serve the Bootstrap framework files. Enabling this setting will prevent this theme from attempting to load any Bootstrap framework files locally. !warning', array(
-      '!bootstrapcdn' => l(t('BootstrapCDN'), 'http://bootstrapcdn.com', array(
-        'external' => TRUE,
-      )),
-    '!warning' => '<div class="alert alert-info messages info"><strong>' . t('NOTE') . ':</strong> ' . t('While BootstrapCDN (content distribution network) is the preferred method for providing huge performance gains in load time, this method does depend on using this third party service. BootstrapCDN is under no obligation or commitment to provide guaranteed up-time or service quality for this theme. If you choose to disable this setting, you must provide your own Bootstrap source and/or optional CDN delivery implementation.') . '</div>',
-    )),
-    '#group' => 'bootstrap',
-    '#collapsible' => TRUE,
-    '#collapsed' => TRUE,
-  );
-
-  // BootstrapCDN.
-
-  $form['bootstrap_lite_cdn']['bootstrap_lite_cdn'] = array(
-    '#type' => 'select',
-    '#title' => t('BootstrapCDN version'),
-    '#options' => backdrop_map_assoc(array(
-      '3.3.5',
-      '3.3.6',
-      '3.3.7',
-      '3.4.0',
-      '3.4.1',
-    )),
-    '#default_value' => theme_get_setting('bootstrap_lite_cdn', $theme_name),
-    '#empty_option' => t('Disabled'),
-    '#empty_value' => NULL,
-  );
-
-  $form['bootstrap_lite_cdn']['bootstrap_lite_font_awesome'] = array(
-    '#type' => 'select',
-    '#title' => t('Font Awesome version'),
-    '#options' => backdrop_map_assoc(array(
-      '4.4.0',
-      '4.7.0',
-    )),
-    '#default_value' => theme_get_setting('bootstrap_lite_font_awesome', $theme_name),
-    '#empty_option' => t('Disabled'),
-    '#empty_value' => NULL,
-  );
 }
 
 function bootstrap_bootswatch_template($bootswatch_theme){

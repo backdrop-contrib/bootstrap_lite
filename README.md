@@ -65,3 +65,4 @@ License
 
 This project is GPL v2 software. See the LICENSE.txt file in this directory for complete text.
 
+Bootstrap 3 and the Bootswatch themes are provided under the [MIT License](https://getbootstrap.com/docs/4.0/about/license/).
