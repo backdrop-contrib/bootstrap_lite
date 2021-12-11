@@ -3,13 +3,11 @@ Bootstrap Lite
 
 This is a clean and minimal Backdrop-oriented Bootstrap 3-based theme inspired by the Drupal [Bootstrap](https://www.drupal.org/project/bootstrap) theme. It is a totally separate project from the Drupal [Bootstrap](https://www.drupal.org/project/bootstrap) theme with no guaranteed compatibility between the two themes.
 
-This theme is still in beta and is subject to changes that may break your theme during upgrade. We recommend that you only upgrade if necessary or if you are prepared to fix minor changes. With the change in maintainership on Feb 5, 2021, we are hoping to cut a stable release ASAP.
-
 Features
 --------
 
-1. [BootstrapCDN](http://bootstrapcdn.com/) based.
-2. [Bootswatch](http://bootswatch.com) support (via BootstrapCDN) included. Easy to pick a Bootswatch free theme.
+1. Load Bootstrap from [BootstrapCDN](http://bootstrapcdn.com/) or from the bundled library.
+2. [Bootswatch](http://bootswatch.com) support included. Easy to pick a Bootswatch free theme.
 3. [FontAwesome](https://fortawesome.github.io/Font-Awesome/) support included.
 4. Other tweaks:
   - Navbar settings (fixed, static, top, bottom). 
@@ -28,7 +26,10 @@ Installation
 Documentation
 -------------
 
-Additional documentation is located in [the Wiki](https://github.com/backdrop-contrib/bootstrap_lite/wiki/Documentation).
+See the official [Bootstrap 3 documentation](https://getbootstrap.com/docs/3.4/) for a general description of Bootstrap CSS, components, and JS resources supported by the module.
+
+Beginning with version 1.x-1.4.0, the main `body` tag in the page HTML includes classes based on the user's role(s) and the normal path (not path alias) of the page.
+
 
 Differences from Drupal 7
 -------------------------
@@ -38,13 +39,13 @@ These features were dropped in the port from the Drupal Bootstrap theme:
   - Starter kit. But you still can create a sub theme. See [Developing themes](https://api.backdropcms.org/developing-themes).
   - Tooltip. The feature is there, but you need to follow the [Bootstrap 3 documentation](https://getbootstrap.com/docs/3.4/javascript/#tooltips) to make it work.
   - Popovers. The feature is there, but you need to follow the [Bootstrap 3 documentation](https://getbootstrap.com/docs/3.4/javascript/#popovers) to make it work.
-  - Anchors settings. I believe this one needs to be done via a module.
+  - Anchors settings.
   - Well settings.
 
 Issues
 ------
 
-Bugs and feature requests should be reported in [the Issue Queue](https://github.com/backdrop-contrib/bootstrap_lite/issues).
+Bugs and feature requests should be reported in [the issue queue](https://github.com/backdrop-contrib/bootstrap_lite/issues).
 
 Current Maintainers
 -------------------
