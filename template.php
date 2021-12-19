@@ -10,28 +10,29 @@
 function bootstrap_lite_css_alter(&$css) {
   $theme_path = backdrop_get_path('theme', 'bootstrap_lite');
 
+  // Bootstrap
+
   $cdn_version = theme_get_setting('bootstrap_lite_cdn');
   if ($cdn_version) {
-
     $bootswatch = theme_get_setting('bootstrap_lite_bootswatch');
     if ($cdn_version == 'module') {
       // Use bundled library
-      $bootstrap_src = '/' . backdrop_get_path('theme', 'bootstrap_lite') . '/css/';
+      $bootstrap_src = '/' . $theme_path;
       if ($bootswatch) {
-        $bootstrap_src .= 'bootswatch/' . $bootswatch . '/bootstrap.min.css';
+        $bootstrap_src .= '/bootswatch/' . $bootswatch . '/bootstrap.min.css';
       }
       else {
-        $bootstrap_src .= 'bootstrap.min.css';
+        $bootstrap_src .= '/bootstrap/css/bootstrap.min.css';
       }
     }
     else {
       // Use CDN
-      $bootstrap_src = 'https://stackpath.bootstrapcdn.com/';
+      $bootstrap_src = 'https://stackpath.bootstrapcdn.com';
       if ($bootswatch) {
-        $bootstrap_src .= 'bootswatch/' . $cdn_version . '/' . $bootswatch . '/bootstrap.min.css';
+        $bootstrap_src .= '/bootswatch/' . $cdn_version . '/' . $bootswatch . '/bootstrap.min.css';
       }
       else {
-        $bootstrap_src .= 'bootstrap/' . $cdn_version . '/css/bootstrap.min.css';
+        $bootstrap_src .= '/bootstrap/' . $cdn_version . '/css/bootstrap.min.css';
       }
     }
     $css[$bootstrap_src] = array(
@@ -61,10 +62,12 @@ function bootstrap_lite_css_alter(&$css) {
     );
   }
 
+  // Font Awesome
+
   if ($font_awesome = theme_get_setting('bootstrap_lite_font_awesome')) {
     if ($font_awesome == 'module') {
-      // User bundled library
-      $font_awesome_src = '/' . backdrop_get_path('theme', 'bootstrap_lite') . '/css/font-awesome.min.css';
+      // Use bundled library
+      $font_awesome_src = '/' . $theme_path . '/font-awesome/css/font-awesome.min.css';
     }
     else {
       // Use CDN.
@@ -92,18 +95,19 @@ function bootstrap_lite_js_alter(&$js) {
   if ($cdn_version) {
     if ($cdn_version == 'module') {
       // Use bundled library
-      $js_src = '/' . backdrop_get_path('theme', 'bootstrap_lite') . '/js/bootstrap.min.js';
+      $js_src = '/' . backdrop_get_path('theme', 'bootstrap_lite') . '/bootstrap/js/bootstrap.min.js';
     }
     else {
       // Use CDN
       $js_src = 'https://stackpath.bootstrapcdn.com/bootstrap/' .$cdn_version  . '/js/bootstrap.min.js';
     }
-    $js[$js_src] = backdrop_js_defaults();
-    $js[$js_src]['data'] = $js_src;
-    $js[$js_src]['type'] = 'external';
-    $js[$js_src]['every_page'] = TRUE;
-    $js[$js_src]['every_page_weight'] = -1;
-    $js[$js_src]['weight'] = -100;
+    $js[$js_src] = array(
+      'data' => $js_src,
+      'type' => 'external',
+      'every_page' => TRUE,
+      'every_page_weight' => -1,
+      'weight' => -100,
+    ) + backdrop_js_defaults();
   }
 }
 

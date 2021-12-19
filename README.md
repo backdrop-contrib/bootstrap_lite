@@ -8,14 +8,14 @@ Features
 
 1. Load Bootstrap from [BootstrapCDN](http://bootstrapcdn.com/) or from the bundled library.
 2. [Bootswatch](http://bootswatch.com) support included. Easy to pick a Bootswatch free theme.
-3. [FontAwesome](https://fortawesome.github.io/Font-Awesome/) support included.
+3. [FontAwesome 4](https://fontawesome.com/v4.7/) support included.
 4. Other tweaks:
-  - Navbar settings (fixed, static, top, bottom). 
+  - Navbar settings (fixed, static, top, bottom).
   - Navbar user menu with cog icon.
   - Breadcrumbs tweaks.
   - Ability to use fluid or fixed width.
   - "XX time ago" for nodes and comments instead of regular time.
-  
+
 Installation
 ------------
 
@@ -26,17 +26,22 @@ Installation
 Documentation
 -------------
 
+Beginning with version 1.x-1.4.0, the main `body` tag in the page HTML includes classes based on the user's role(s) and the normal path (not URL alias) of the page.
+
 See the official [Bootstrap 3 documentation](https://getbootstrap.com/docs/3.4/) for a general description of Bootstrap CSS, components, and JS resources supported by the module.
 
-Beginning with version 1.x-1.4.0, the main `body` tag in the page HTML includes classes based on the user's role(s) and the normal path (not path alias) of the page.
+See the official [Font Awesome 4 documentation](https://fontawesome.com/v4.7/) for a general description of Font Awesome 4.
 
+Bootstrap 3 comes with its own [set of icons](https://getbootstrap.com/docs/3.4/components/#glyphicons) and an icon font, "Glyphicon Halflings". Bootstrap 3 icons use HTML like this (for a cart): `<i class="glyphicon glyphicon-shopping-cart"></i>`.
+
+Font Awesome 4 (which is optional) provides its own [set of icons](https://fontawesome.com/v4.7/icons/), which use HTML like this (also for a cart): `<i class="fa fa-shopping-cart"></i>`.
 
 Differences from Drupal 7
 -------------------------
 
 These features were dropped in the port from the Drupal Bootstrap theme:
 
-  - Starter kit. But you still can create a sub theme. See [Developing themes](https://api.backdropcms.org/developing-themes).
+  - Starter kit. But you still can create a sub theme. See [Developing themes](https://docs.backdropcms.org/documentation/developing-themes).
   - Tooltip. The feature is there, but you need to follow the [Bootstrap 3 documentation](https://getbootstrap.com/docs/3.4/javascript/#tooltips) to make it work.
   - Popovers. The feature is there, but you need to follow the [Bootstrap 3 documentation](https://getbootstrap.com/docs/3.4/javascript/#popovers) to make it work.
   - Anchors settings.
@@ -50,7 +55,7 @@ Bugs and feature requests should be reported in [the issue queue](https://github
 Current Maintainers
 -------------------
 
-- [Tim Erickson](https://github.com/stpaultim),  [https://www.simplo.site](https://www.simplo.site)
+- [Tim Erickson](https://github.com/stpaultim), [https://www.simplo.site](https://www.simplo.site)
 - [Robert J. Lang](https://github.com/bugfolder)
 
 Credits
@@ -58,7 +63,7 @@ Credits
 
 Thanks to the Drupal [Bootstrap theme authors](http://drupal.org/node/259843/committers).
 
-Thanks to [Gormartsen](https://github.com/Gormartsen) for the original port to Backdrop CMS. 
+Thanks to [Gormartsen](https://github.com/Gormartsen) for the original port to Backdrop CMS.
 
 
 License
@@ -66,4 +71,4 @@ License
 
 This project is GPL v2 software. See the LICENSE.txt file in this directory for complete text.
 
-Bootstrap 3 and the Bootswatch themes are provided under the [MIT License](https://getbootstrap.com/docs/4.0/about/license/).
+Bootstrap, the Bootswatch themes, and Font Awesome are provided under the [MIT License](https://getbootstrap.com/docs/4.0/about/license/).
