@@ -3,7 +3,7 @@
  * @file
  * theme-settings.php
  *
- * Theme settings file for Bootstrap.
+ * Theme settings file for Bootstrap Lite.
  */
 
 function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $form_id = NULL) {
@@ -25,10 +25,10 @@ function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $
     '#type' => 'fieldset',
     '#title' => t('Version and CDN'),
     '#description' => t('You may use the !bootstrapcdn or choose the bundled library to serve the Bootstrap framework files. If you disable these settings, you must provide your own Bootstrap source and/or optional CDN delivery implementation. !warning', array(
-      '!bootstrapcdn' => l(t('BootstrapCDN'), 'http://bootstrapcdn.com', array(
+      '!bootstrapcdn' => l(t('Bootstrap CDN'), 'http://bootstrapcdn.com', array(
         'external' => TRUE,
       )),
-    '!warning' => '<div class="alert alert-info messages info"><strong>' . t('NOTE') . ':</strong> ' . t('While BootstrapCDN (content distribution network) is the preferred method for providing performance gains in load time, this method does depend on using this third party service. BootstrapCDN is under no obligation or commitment to provide guaranteed up-time or service quality for this theme.') . '</div>',
+    '!warning' => '<div class="alert alert-info messages info"><strong>' . t('NOTE') . ':</strong> ' . t('While the BootstrapCDN (content distribution network) is the preferred method for providing performance gains in load time, this method does depend on using this third party service. BootstrapCDN is under no obligation or commitment to provide guaranteed up-time or service quality for this theme.') . '</div>',
     )),
     '#group' => 'bootstrap',
     '#collapsible' => TRUE,
