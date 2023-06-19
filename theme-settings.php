@@ -14,6 +14,9 @@ function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $
   $theme_name = $form['theme']['#value'];
   $form['bootstrap'] = array(
     '#type' => 'vertical_tabs',
+    '#attached' => array(
+      'js'  => array(backdrop_get_path('theme', 'bootstrap_lite') . '/js/theme-settings.js'),
+    ),
     '#prefix' => '<h2><small>' . t('Bootstrap Settings') . '</small></h2>',
     '#weight' => -10,
   );
@@ -205,6 +208,12 @@ function bootstrap_lite_form_system_theme_settings_alter(&$form, &$form_state, $
     '#description' => t('If enabled, replace date output for nodes and comments by "XX time ago".'),
   );
 
+  $form['tweaks']['bootstrap_lite_image_responsive'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Responsive images'),
+    '#default_value' => theme_get_setting('bootstrap_lite_image_responsive', $theme_name),
+    '#description' => t('Images in Bootstrap 3 can be made responsive-friendly via the addition of the <code>.img-responsive</code> class. This applies <code>max-width: 100%;</code> and <code>height: auto;</code> to the image so that it scales nicely to the parent element.'),
+  );
 }
 
 function bootstrap_bootswatch_template($bootswatch_theme){
