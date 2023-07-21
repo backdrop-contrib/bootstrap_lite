@@ -967,3 +967,13 @@ function bootstrap_lite_preprocess_node(&$variables){
     $variables['timeago'] = t('@time ago', array('@time' => format_interval(time() - $node->created)));
   }
 }
+
+/**
+ * Implements hook_preprocess_image().
+ */
+function bootstrap_lite_preprocess_image(&$variables) {
+  // Add responsiveness, if necessary.
+  if (theme_get_setting('bootstrap_lite_image_responsive')) {
+    $variables['attributes']['class'][] = 'img-responsive';
+  }
+}

@@ -141,7 +141,7 @@ a.fieldset-title:hover {
 
 /* Fix drop button style in admin area. */
 .dropbutton .dropbutton-action > * {
-  padding: 6px 12px;  
+  padding: 6px 12px;
 }
 
 .dropbutton .dropbutton-action a,
@@ -203,7 +203,7 @@ ul.action-links i.fa {
 
 #views-ui-preview-form > div > div,
 #views-ui-preview-form > div > input {
-  float: none;  
+  float: none;
 }
 
 .views-display-columns > * {
@@ -234,7 +234,7 @@ h1.page-title {
 /* Style user pic. */
 .user-picture img {
   border: 1px solid #e5e7e8;
-  padding: 1px; 
+  padding: 1px;
 }
 
 /* Style nodes and coments in twitter style. */
@@ -291,7 +291,7 @@ span.password-toggle-wrapper {
 
 /* Fixes a conflict between Bootstrap and the admin bar */
 
-#admin-bar .dropdown li > a, 
+#admin-bar .dropdown li > a,
 #admin-bar .dropdown li > span {
   margin-bottom: 0;
 }
