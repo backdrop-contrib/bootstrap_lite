@@ -6,6 +6,7 @@ type = theme
 tags[] = Bootstrap
 
 settings[bootstrap_lite_cdn] = 3.4.1
+settings[bootstrap_lite_bootswatch] = ""
 settings[bootstrap_lite_font_awesome] = 4.7.0
 settings[bootstrap_lite_container] = container
 settings[bootstrap_lite_navbar_position] = static-top
