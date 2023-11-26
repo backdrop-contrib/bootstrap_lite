@@ -147,7 +147,12 @@ a.fieldset-title:hover {
 .dropbutton .dropbutton-action a,
 .dropbutton .dropbutton-action a:hover
 {
+  color: #337ab7;
   border: none;
+}
+.dropbutton .dropbutton-action a:hover
+{
+  text-decoration: underline;
 }
 
 /* Fix Hanle for drag&drop. */
