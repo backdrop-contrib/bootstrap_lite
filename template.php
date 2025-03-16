@@ -198,7 +198,7 @@ function bootstrap_lite_preprocess_page(&$variables){
   if (!empty($path_parts)) {
     $path_classes = array('page-' . $path_parts[0]);
     for ($i = 1; $i < count($path_parts); $i++) {
-      $path_classes[] = $path_classes[$i - 1] . '-' . $path_parts[$i];
+      $path_classes[] = backdrop_clean_css_identifier($path_classes[$i - 1] . '-' . $path_parts[$i]);
     }
     $variables['classes'] = array_merge($variables['classes'], $path_classes);
   }

@@ -178,6 +178,10 @@ a.fieldset-title:hover {
   color: #337ab7;
   border: none;
 }
+.dropbutton .dropbutton-action a:hover
+{
+  text-decoration: underline;
+}
 
 .dropbutton .dropbutton-action a:hover {
   text-decoration: underline;
@@ -332,8 +336,6 @@ span.password-toggle-wrapper {
 }
 
 /* Overrides for specific Bootswatch themes */
-
-/* Overrides dropbutton a colors for all Bootswatch themes */
 
 /* cerulean */
 
