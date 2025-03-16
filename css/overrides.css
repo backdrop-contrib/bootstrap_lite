@@ -1,55 +1,63 @@
 /* Navbar + admin-bar fixes */
-body.navbar-is-fixed-bottom{
-  padding-bottom:50px!important;
+body.navbar-is-fixed-bottom {
+  padding-bottom: 50px !important;
 }
 
 body.navbar-is-fixed-top {
-  padding-top:70px!important;
+  padding-top: 70px !important;
 }
 
-body.navbar-is-fixed-top-padding{
-  padding-top:70px!important;
+body.navbar-is-fixed-top-padding {
+  padding-top: 70px !important;
 }
 
-body div#admin-bar{
-  z-index:1600;
+body div#admin-bar {
+  z-index: 1600;
 }
 
-body.navbar-admin-bar.navbar-is-fixed-top .navbar-fixed-top  {
+body.navbar-admin-bar.navbar-is-fixed-top .navbar-fixed-top {
   padding-top: 33px;
 }
 
 /* Logo fixes to meet navbar requirements by size. */
-.navbar-brand img{
+.navbar-brand img {
   height: 40px;
   float: left;
   margin-top: -10px;
   padding-right: 10px;
 }
 
-ul li.collapsed,ul li.expanded,ul li.leaf{
-  list-style:none;list-style-image:none;
+ul li.collapsed,
+ul li.expanded,
+ul li.leaf {
+  list-style: none;
+  list-style-image: none;
 }
 
 /* Form style fixes. */
-html.js fieldset.collapsed{
-  height:auto;
+html.js fieldset.collapsed {
+  height: auto;
 }
 
-fieldset legend.panel-heading{
-  float:left;line-height:1em;margin:0;
+fieldset legend.panel-heading {
+  float: left;
+  line-height: 1em;
+  margin: 0;
 }
 
-fieldset .panel-body{
-  clear:both;
+fieldset .panel-body {
+  clear: both;
 }
 
-fieldset .panel-heading a.panel-title{
-  color:inherit;display:block;margin:-10px -15px;padding:10px 15px;
+fieldset .panel-heading a.panel-title {
+  color: inherit;
+  display: block;
+  margin: -10px -15px;
+  padding: 10px 15px;
 }
 
-fieldset .panel-heading a.panel-title:hover{
-  text-decoration:none;
+fieldset .panel-heading a.panel-title:hover {
+  text-decoration: none;
 }
 
 .input-group span.input-group-addon {
@@ -68,16 +76,32 @@ fieldset .panel-heading a.panel-title:hover{
 }
 
 
-.form-control.required::-webkit-input-placeholder { color: rgba(255, 0, 14, 0.68); }
-.form-control.required:-moz-placeholder { color: rgba(255, 0, 14, 0.68); }
-.form-control.required::-moz-placeholder { color: rgba(255, 0, 14, 0.68); }
-.form-control.required:-ms-input-placeholder { color: rgba(255, 0, 14, 0.68); }
+.form-control.required::-webkit-input-placeholder {
+  color: rgba(255, 0, 14, 0.68);
+}
 
-.form-item input.error, .form-item textarea.error, .form-item select.error {
+.form-control.required:-moz-placeholder {
+  color: rgba(255, 0, 14, 0.68);
+}
+
+.form-control.required::-moz-placeholder {
+  color: rgba(255, 0, 14, 0.68);
+}
+
+.form-control.required:-ms-input-placeholder {
+  color: rgba(255, 0, 14, 0.68);
+}
+
+.form-item input.error,
+.form-item textarea.error,
+.form-item select.error {
   border: 1px solid red;
 }
 
-.checkbox input[type=checkbox], .checkbox-inline input[type=checkbox], .radio input[type=radio], .radio-inline input[type=radio] {
+.checkbox input[type=checkbox],
+.checkbox-inline input[type=checkbox],
+.radio input[type=radio],
+.radio-inline input[type=radio] {
   margin-left: 0px;
 }
 
@@ -87,8 +111,11 @@ fieldset .panel-heading a.panel-title:hover{
 }
 
 /* Table style fixes. */
-th.checkbox,td.checkbox,th.radio,td.radio{
-  display:table-cell;
+th.checkbox,
+td.checkbox,
+th.radio,
+td.radio {
+  display: table-cell;
 }
 
 tr.even {
@@ -107,6 +134,7 @@ tr.even {
 .vertical-tab-link {
   color: black;
 }
+
 .vertical-tab-link span {
   color: #555;
 }
@@ -120,12 +148,13 @@ tr.even {
   text-decoration: none;
   outline: none;
 }
+
 .vertical-tab-item:focus,
 .vertical-tab-item:active,
 .vertical-tab-item:hover,
 .vertical-tab-item:focus,
 .vertical-tab-item:active,
-.vertical-tab-item:hover{
+.vertical-tab-item:hover {
   background-color: white;
 }
 
@@ -140,18 +169,21 @@ a.fieldset-title:hover {
 }
 
 /* Fix drop button style in admin area. */
-.dropbutton .dropbutton-action > * {
+.dropbutton .dropbutton-action>* {
   padding: 6px 12px;
 }
 
 .dropbutton .dropbutton-action a,
-.dropbutton .dropbutton-action a:hover
-{
+.dropbutton .dropbutton-action a:hover {
   color: #337ab7;
   border: none;
 }
 .dropbutton .dropbutton-action a:hover
 {
+  text-decoration: underline;
+}
+
+.dropbutton .dropbutton-action a:hover {
   text-decoration: underline;
 }
 
@@ -206,28 +238,29 @@ ul.action-links i.fa {
   font-size: 12px;
 }
 
-#views-ui-preview-form > div > div,
-#views-ui-preview-form > div > input {
+#views-ui-preview-form>div>div,
+#views-ui-preview-form>div>input {
   float: none;
 }
 
-.views-display-columns > * {
+.views-display-columns>* {
   margin: 0;
 }
-.views-display-columns > *:first-child {
+
+.views-display-columns>*:first-child {
   margin: 0px;
-  padding-left:15px;
+  padding-left: 15px;
 }
 
 .views-ui-display-tab-bucket {
   padding-top: 0px;
 }
 
-.views-ui-display-tab-bucket .dropbutton li > * {
+.views-ui-display-tab-bucket .dropbutton li>* {
   padding: 6px 12px;
 }
 
-.views-ui-display-tab-bucket + .views-ui-display-tab-bucket {
+.views-ui-display-tab-bucket+.views-ui-display-tab-bucket {
   border-top: 1px solid #ddd;
 }
 
@@ -264,7 +297,7 @@ ul.pager {
 }
 
 .navbar-is-fixed .l-header {
-/*  margin-top: 10px;*/
+  /*  margin-top: 10px;*/
 }
 
 /* Navbar too narrow out of box */
@@ -276,7 +309,8 @@ img {
   margin: 20px 0;
 }
 
-footer, .block-system-main-menu {
+footer,
+.block-system-main-menu {
   display: block;
   padding: 20px 0px;
 }
@@ -296,8 +330,8 @@ span.password-toggle-wrapper {
 
 /* Fixes a conflict between Bootstrap and the admin bar */
 
-#admin-bar .dropdown li > a,
-#admin-bar .dropdown li > span {
+#admin-bar .dropdown li>a,
+#admin-bar .dropdown li>span {
   margin-bottom: 0;
 }
 
@@ -340,16 +374,24 @@ body.cosmo .dropbutton .dropbutton-action>* {
 
 /* cyborg */
 
-body.cyborg .dropbutton .dropbutton-action a {
-  color: #2A9FD6;
-  background-color: #ffffff;
+body.cyborg .dropbutton .dropbutton-action a,
+body.cyborg .dropbutton-arrow,
+body.cyborg .dropbutton .dropbutton-toggle button {
+  color: #ffffff;
+  background-color: #060606;
   background-image: none;
 }
 
-body.cyborg .dropbutton .dropbutton-action a:hover,
-body.cyborg .dropbutton-arrow {
-  color: #1E7CAB;
-  background-color: #f7f7f7;
+body.cyborg .dropbutton .dropbutton-action a:hover {
+  background-color: #2a9fd6;
+  text-decoration: none;
+}
+
+body.cyborg .dropbutton-arrow:hover,
+body.cyborg .dropbutton .dropbutton-toggle button:hover {
+  color: #ffffff;
+  background-color: #222222;
+  text-decoration: none;
 }
 
 body.cyborg .dropbutton .dropbutton-action>* {
@@ -366,7 +408,7 @@ body.cyborg tr.odd {
   background-color: unset;
 }
 
-body.cyborg .table>tbody>tr:nth-of-type(odd) {
+body.cyborg table>tbody>tr:nth-of-type(odd) {
   background-color: #080808;
 }
 
@@ -374,13 +416,26 @@ body.cyborg table>tbody>tr:hover {
   background-color: #282828;
 }
 
+.js .cyborg .dropbutton-widget {
+  background-color: #666;
+  border: 1px solid #666;
+}
+
+body.cyborg .dropbutton-multiple .dropbutton {
+  border-right: none;
+}
+
+body.cyborg .dropbutton .secondary-action {
+  border-top: 1px solid #666;
+}
+
 /* darkly */
 
 body.darkly .dropbutton .dropbutton-action a,
-body.darkly .dropbutton-toggle button{
+body.darkly .dropbutton-toggle button {
   color: #0ce3ac;
   background-color: #464545;
-    background-image: none;
+  background-image: none;
 }
 
 body.darkly .dropbutton .dropbutton-action a:hover,
@@ -409,7 +464,7 @@ body.darkly tr.odd {
   border-bottom: none;
 }
 
-body.darkly .table>tbody>tr:nth-of-type(odd) {
+body.darkly table>tbody>tr:nth-of-type(odd) {
   background-color: #3d3d3d;
 }
 
@@ -417,15 +472,59 @@ body.darkly table>tbody>tr:hover {
   background-color: #464545;
 }
 
+.js .darkly .dropbutton-widget {
+  background-color: #666;
+  border: 1px solid #666;
+}
+
+body.darkly .dropbutton-multiple .dropbutton {
+  border-right: none;
+}
+
+body.darkly .dropbutton .secondary-action {
+  border-top: 1px solid #666;
+}
+
 /* flatly */
 
 body.flatly .dropbutton .dropbutton-action a {
-  color: #18BC9C;
+  color: #7b8a8b;
   background-color: #f7f7f7;
 }
 
+body.flatly .table a:not(.btn) {
+  color: #18BC9C;
+  text-decoration: none;
+}
+
+body.flatly .table a:not(.btn):hover {
+  text-decoration: underline;
+}
+
 body.flatly .dropbutton .dropbutton-action a:hover {
-  color: #148F77;
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #2c3e50;
+}
+
+body.flatly tr.even,
+body.flatly tr.odd {
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #efefef;
+  padding: 0.1em 0.6em;
+}
+
+body.flatly tr.even {
+  background-color: transparent;
+}
+
+body.flatly tr.even:hover,
+body.flatly tr.odd:hover {
+  background-color: #ecf0f1;
+}
+
+body.flatly .dropbutton .dropbutton-action>* {
+  padding: 0.1em 0.5em;
 }
 
 /* journal */
@@ -435,53 +534,207 @@ body.journal .dropbutton .dropbutton-action a {
   background-color: #f7f7f7;
 }
 
+body.journal .table a:not(.btn) {
+  color: #EB6864;
+  text-decoration: none;
+}
+
+body.journal .table a:not(.btn):hover {
+  text-decoration: underline;
+}
+
 body.journal .dropbutton .dropbutton-action a:hover {
-  color: #DA4F4B;
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #EB6864;
+}
+
+body.journal tr.even,
+body.journal tr.odd {
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #efefef;
+  padding: 0.1em 0.6em;
+}
+
+body.journal tr.even {
+  background-color: transparent;
+}
+
+body.journal tr.even:hover,
+body.journal tr.odd:hover {
+  background-color: #f5f5f5;
+}
+
+body.journal .dropbutton .dropbutton-action>* {
+  padding: 0.1em 0.5em;
 }
 
 /* lumen */
 
 body.lumen .dropbutton .dropbutton-action a {
-  color: #158CBA;
-  background-color: #f7f7f7;
+  color: #999999;
+  background-color: transparent;
 }
 
 body.lumen .dropbutton .dropbutton-action a:hover {
-  color: #1175A0;
+  color: #333;
+  background-color: transparent;
+  text-decoration: none;
 }
+
+body.lumen .table .btn {
+  text-transform: unset;
+}
+
+body.lumen .table .btn:hover {
+  margin-top: 0;
+}
+
+body.lumen .table a:not(.btn) {
+  color: #158CBA;
+  text-decoration: none;
+}
+
+body.lumen .table a:not(.btn):hover {
+  text-decoration: underline;
+}
+
+body.lumen tr.even,
+body.lumen tr.odd {
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #efefef;
+  padding: 0.1em 0.6em;
+}
+
+body.lumen tr.even {
+  background-color: transparent;
+}
+
+body.lumen tr.even:hover,
+body.lumen tr.odd:hover {
+  background-color: #f5f5f5;
+}
+
+body.lumen .dropbutton .dropbutton-action>* {
+  padding: 0.1em 0.5em;
+}
+
 
 /* paper */
 
 body.paper .dropbutton .dropbutton-action a {
-  color: #2196F3;
-  background-color: #f7f7f7;
+  color: #666666;
+  background-color: transparent;
+}
+
+body.paper .table a:not(.btn) {
+  color: #2196f3;
+  text-decoration: none;
+}
+
+body.paper .table .btn {
+  text-transform: unset;
+  box-shadow: none;
+  transition: none;
 }
 
 body.paper .dropbutton .dropbutton-action a:hover {
-  color: #2196f3;
+  color: #141414;
+  text-decoration: none;
+  background-color: #eeeeee;
+  background-image: none;
+}
+
+body.paper tr.even,
+body.paper tr.odd {
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #efefef;
+  padding: 0.1em 0.6em;
+}
+
+body.paper tr.even {
+  background-color: transparent;
+}
+
+body.paper tr.even:hover,
+body.paper tr.odd:hover {
+  background-color: #f5f5f5;
+}
+
+body.paper .dropbutton .dropbutton-action>* {
+  padding: 0.1em 0.5em;
 }
 
 /* readable */
 
 body.readable .dropbutton .dropbutton-action a {
-  color: #4582ec;
+  color: #333333;
 }
 
-body.readable .dropbutton .dropbutton-action a:hover,
-body.readable .dropbutton-widget {
+body.readable .table a:not(.btn) {
   color: #4582ec;
-  background-color: #f7f7f7;
+  text-decoration: none;
 }
 
+body.readable .dropbutton .dropbutton-action a:hover {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #4582ec;
+  background-image: none;
+}
+
+body.readable tr.even,
+body.readable tr.odd {
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #efefef;
+  padding: 0.1em 0.6em;
+}
+
+body.readable tr.even {
+  background-color: transparent;
+}
+
+body.readable tr.even:hover,
+body.readable tr.odd:hover {
+  background-color: #f5f5f5;
+}
+
+body.readable .dropbutton .dropbutton-action>* {
+  padding: 0.1em 0.5em;
+}
 /* sandstone */
 
+body.sandstone {
+  text-transform: none;
+}
+
 body.sandstone .dropbutton .dropbutton-action a {
-  color: #93c54b;
-  background-color: #f7f7f7;
+  color: #98978b;
+  background-color: transparent;
+  background-image: none;
+  text-transform: none;
 }
 
 body.sandstone .dropbutton .dropbutton-action a:hover {
-  color: #93c54b;
+  color: #98978b;
+  background-color: #f8f5f0;
+  text-decoration: none;
+}
+
+body.sandstone tr.even,
+body.sandstone tr.odd {
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #efefef;
+  padding: 0.1em 0.6em;
+}
+
+body.sandstone tr.even {
+  background-color: transparent;
+}
+
+body.sandstone tr.even:hover,
+body.sandstone tr.odd:hover {
+  background-color: #f5f5f5;
 }
 
 body.sandstone .dropbutton .dropbutton-action>* {
@@ -491,43 +744,132 @@ body.sandstone .dropbutton .dropbutton-action>* {
 /* simplex */
 
 body.simplex .dropbutton .dropbutton-action a {
-  color: #D9230F;
-  background-color: #f7f7f7;
+  color: #444444;
+  background-color: transparent;
   background-image: none;
 }
 
 body.simplex .dropbutton .dropbutton-action a:hover {
-  color: #C71C08;
+  color: #ffffff;
+  text-decoration: none;
+    background-color: #C71C08;
+    background-image: none;
+}
+
+body.simplex tr.even,
+body.simplex tr.odd {
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #efefef;
+  padding: 0.1em 0.6em;
+}
+
+body.simplex tr.even {
+  background-color: transparent;
+}
+
+body.simplex tr.even:hover,
+body.simplex tr.odd:hover {
+  background-color: #f5f5f5;
+}
+
+body.simplex .dropbutton .dropbutton-action>* {
+  padding: 0.1em 0.5em;
 }
 
 /* slate */
 
-body.slate .dropbutton .dropbutton-action a {
+body.slate .dropbutton .dropbutton-action a,
+body.slate .dropbutton-arrow,
+body.slate .dropbutton .dropbutton-toggle button {
   color: #ffffff;
+  background-color: #272b30;
+  background-image: none;
 }
 
 body.slate .dropbutton .dropbutton-action a:hover {
   color: #ffffff;
+  text-decoration: none;
+  background-color: #535353;
+}
+
+body.slate .dropbutton .dropbutton-action>* {
+  padding: 0.1em 0.5em;
+}
+
+body.slate table>tbody>tr:nth-of-type(odd) {
+  background-color: #353a41;
+}
+
+body.slate table>tbody>tr:hover {
+  background-color: #49515a;
+}
+
+.js .slate .dropbutton-widget {
+  background-color: #666;
+  border: 1px solid #666;
+}
+
+body.slate .dropbutton-multiple .dropbutton {
+  border-right: none;
+}
+
+body.slate .dropbutton .secondary-action {
+  border-top: 1px solid #666;
 }
 
 /* spacelab */
 
 body.spacelab .dropbutton .dropbutton-action a {
-  color: #3399F3;
-  background-color: #f7f7f7;
+  color: #333333;
+  background-color: transparent;
   background-image: none;
 }
 
 body.spacelab .dropbutton .dropbutton-action a:hover {
-  color: #227FDD;
+  color: #ffffff;
+    text-decoration: none;
+    background-color: #227FDD;
+    background-image: none;
+}
+
+body.spacelab .table .btn {
+  text-transform: unset;
+  text-shadow: none;
+  transition: none;
+}
+
+body.spacelab tr.even,
+body.spacelab tr.odd {
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #efefef;
+  padding: 0.1em 0.6em;
+}
+
+body.spacelab tr.even {
+  background-color: transparent;
+}
+
+body.spacelab tr.even:hover,
+body.spacelab tr.odd:hover {
+  background-color: #f5f5f5;
+}
+
+body.spacelab .dropbutton .dropbutton-action>* {
+  padding: 0.1em 0.5em;
 }
 
 /* superhero */
 
 body.superhero .dropbutton .dropbutton-action a,
-body.superhero .dropbutton-arrow {
-  color: #DF691A;
-  background-color: #f7f7f7;
+body.superhero .dropbutton-arrow,
+body.superhero .dropbutton .dropbutton-toggle button {
+  color: #ffffff;
+  background-color: #2b3e50;
+}
+
+body.superhero .dropbutton .dropbutton-action a:hover {
+  background-color: #222222;
+  text-decoration: none;
 }
 
 body.superhero .table a:not(.btn),
@@ -536,11 +878,11 @@ body.superhero .table a:not(.btn) {
   text-decoration: none;
 }
 
-body.superhero .dropbutton .dropbutton-action a:hover,
-body.superhero .table a:not(.btn):hover,
-body.superhero .table a:not(.btn):hover {
-  color: #CF5C0A;
-  text-decoration: underline;
+body.superhero .dropbutton-arrow:hover,
+body.superhero .dropbutton .dropbutton-toggle button:hover {
+  color: #ffffff;
+  background-color: #222222;
+  text-decoration: none;
 }
 
 body.superhero .dropbutton .dropbutton-action>* {
@@ -552,29 +894,100 @@ body.superhero .table {
   font-size: inherit;
 }
 
+body.superhero tr.odd {
+  background-color: unset;
+}
+
+body.superhero table>tbody>tr:nth-of-type(odd) {
+  background-color: #4e5d6c;
+}
+
+body.superhero table>tbody>tr:hover {
+  background-color: #485563;
+}
+
+.js .superhero .dropbutton-widget {
+  background-color: #666;
+  border: 1px solid #666;
+}
+
+body.superhero .dropbutton-multiple .dropbutton {
+  border-right: none;
+}
+
+body.superhero .dropbutton .secondary-action {
+  border-top: 1px solid #666;
+}
+
 /* united */
 
 body.united .dropbutton .dropbutton-action a {
-  color: #E95420;
-  background-color: #f7f7f7;
+  color: #333333;
+  background-color: transparent;
 }
 
 body.united .dropbutton .dropbutton-action a:hover {
-  color: #D4420D;
+  color: #ffffff;
+  text-decoration: none;
+    background-color: #D4420D;
+    background-image: none;
+}
+
+body.united tr.even,
+body.united tr.odd {
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #efefef;
+  padding: 0.1em 0.6em;
+}
+
+body.united tr.even {
+  background-color: transparent;
+}
+
+body.united tr.even:hover,
+body.united tr.odd:hover {
+  background-color: #f5f5f5;
+}
+
+body.united .dropbutton .dropbutton-action>* {
+  padding: 0.1em 0.5em;
 }
 
 /* yeti */
 
 body.yeti .dropbutton .dropbutton-action a {
-  color: #008CBA;
+  color: #555555;
   background-color: #f7f7f7;
 }
 
 body.yeti .dropbutton .dropbutton-action a:hover {
-  color: #0079A1;
+  color: #ffffff;
+    text-decoration: none;
+    background-color: #008CBA;
+    background-image: none;
 }
 
 body.yeti table,
 body.yeti .table {
   font-size: inherit;
+}
+
+body.yeti tr.even,
+body.yeti tr.odd {
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #efefef;
+  padding: 0.1em 0.6em;
+}
+
+body.yeti tr.even {
+  background-color: transparent;
+}
+
+body.yeti tr.even:hover,
+body.yeti tr.odd:hover {
+  background-color: #f5f5f5;
+}
+
+body.yeti .dropbutton .dropbutton-action>* {
+  padding: 0.1em 0.5em;
 }
